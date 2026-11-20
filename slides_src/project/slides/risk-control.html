@@ -21,6 +21,6 @@
 </div>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">δ = 0.1 · LTT với hiệu chỉnh Bonferroni (Angelopoulos và cs., 2021) · 200 lần chia đôi tập test để kiểm tra · rủi ro = P(sai | được trả lời)</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">45 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">47 / 51</p>
 <aside>AURC là trung bình trên mọi mức coverage; người dùng thực tế cần câu trả lời cho câu hỏi: "tôi chỉ chấp nhận sai 10%, hệ thống trả lời được bao nhiêu?". Chọn ngưỡng sao cho rủi ro trên calib ≤ α là không đủ: do nhiễu mẫu, rủi ro thật vượt α ở 36–66% số lần chia. Learn-then-Test kiểm định giả thuyết "rủi ro > α" bằng p-value nhị thức chính xác trên một lưới ngưỡng cố định từ trước, hiệu chỉnh Bonferroni, nên bảo đảm vượt α với xác suất ≤ δ. Với bảo đảm đó, ở α = 10%: B2 chỉ trả lời được 16% câu, C large 34%, C large-qa 42% — gấp 2.6 lần. Ở α = 5% chỉ large-qa còn trả lời được (11%). Giới hạn: bảo đảm dựa trên giả định dữ liệu mới cùng phân phối. Đem ngưỡng sang NQ và NewsQA thì rủi ro thật 14–21%, vượt α. AddSent vẫn giữ được (trừ một ô), vì cùng miền Wikipedia với SQuAD.</aside>
 </section>

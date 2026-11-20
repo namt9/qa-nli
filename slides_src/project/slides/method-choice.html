@@ -19,6 +19,6 @@
 </div>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">AURC ×100, thấp hơn là tốt hơn · V, R, C dùng nli-large-qa · mọi tham số học trên calib SQuAD · in đậm: tốt nhất mỗi cột</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">46 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">48 / 51</p>
 <aside>Bảng tổng hợp bốn cách dùng tín hiệu. Trong miền ba phương pháp có NLI tinh chỉnh khá sát nhau, C tốt nhất 20.3. Ngoài miền thứ hạng thay đổi: V tốt nhất trên AddSent vì câu gây nhiễu là đúng loại lỗi NLI bắt được; R tốt nhất trên NQ và NewsQA. Chọn C làm phương pháp chính vì bốn lý do: tốt nhất trong miền và vững với mọi kích thước verifier (V, R với verifier nhỏ còn kém B2); xác suất của C được hiệu chỉnh nên dùng trực tiếp để đặt ngưỡng và áp dụng Learn-then-Test; chỉ cần chạy NLI một lần cho top-1 thay vì năm lần như R; và biến thể phức tạp hơn RC chỉ hơn 0.16 điểm. Điểm yếu của C là các trọng số dựa nhiều vào xác suất reader, học trên SQuAD; khi đổi miền xác suất này lệch nên C thua R. Khuyến nghị: trong miền dùng C; khi triển khai trên dữ liệu khác miền huấn luyện thì dùng R, và cần hiệu chỉnh lại ngưỡng vì bảo đảm rủi ro không còn đúng.</aside>
 </section>

@@ -4,13 +4,13 @@
 <div style="display:flex;gap:32px">
 <div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:28px 32px">
 <h3 style="font-size:28px;font-weight:600">NLI là gì</h3>
-<p style="font-size:24px;line-height:1.4">Cho <b>premise</b> P và <b>hypothesis</b> H, phân loại 3 nhãn: <b>kéo theo</b>, <b>mâu thuẫn</b>, <b>trung lập</b>.</p>
-<p style="font-size:24px;line-height:1.4;color:#5a6170">Mô hình cross-encoder đọc cặp [P; H] → softmax 3 lớp. Đề tài dùng P_entail và P_contra.</p>
+<p style="font-size:24px;line-height:1.4">Cho <b>premise</b> P (tiền đề) và <b>hypothesis</b> H (giả thuyết), phân loại 3 nhãn: <b>kéo theo</b>, <b>mâu thuẫn</b>, <b>trung lập</b>.</p>
+<p style="font-size:24px;line-height:1.4;color:#5a6170">Mô hình cross-encoder (đọc chung cặp [P; H]) → xác suất 3 nhãn. Đề tài dùng P_entail (kéo theo) và P_contra (mâu thuẫn).</p>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:28px 32px">
 <h3 style="font-size:28px;font-weight:600">Ánh xạ QA → NLI</h3>
 <p style="font-size:24px;line-height:1.4"><b>Premise</b> = đoạn văn c: cả đoạn, từng câu, hoặc cửa sổ 3 câu (lấy max P_entail)</p>
-<p style="font-size:24px;line-height:1.4"><b>Hypothesis</b> = h(q, â): ghép thô “q â”, hoặc <b>template</b> đổi câu hỏi thành câu khẳng định</p>
+<p style="font-size:24px;line-height:1.4"><b>Hypothesis</b> = h(q, â): <b>concat</b> (ghép thô “q â”), hoặc <b>template</b> đổi câu hỏi thành câu khẳng định</p>
 </div>
 </div>
 <p style="font-size:26px;line-height:1.4"><b>Ví dụ.</b> Premise: “Jacksonville surrounds the town of Baldwin.”</p>
@@ -20,6 +20,6 @@
 <tr><td style="padding:10px 14px">What town surrounds Jacksonville? <span style="color:#b8461a">(không ĐA)</span></td><td style="padding:10px 14px">Baldwin town surrounds Jacksonville.</td><td style="text-align:right;padding:10px 14px">0.97</td><td style="text-align:right;padding:10px 14px;color:#b8461a">0.019</td></tr>
 </table>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">Cả hai câu reader đều chọn “Baldwin” · P_entail của nli-large-qa, premise cả đoạn · template đôi khi sai ngữ pháp, NLI vẫn chịu được</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">24 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">26 / 51</p>
 <aside>Ý tưởng cốt lõi của phương pháp. NLI (suy diễn ngôn ngữ tự nhiên) cho một cặp premise và hypothesis, hỏi premise có kéo theo hypothesis không, với ba nhãn kéo theo, mâu thuẫn, trung lập. Mô hình là cross-encoder: đọc chung hai câu, ra phân phối 3 lớp. Để dùng cho QA: premise là đoạn văn, có thể đưa cả đoạn, từng câu hoặc cửa sổ 3 câu rồi lấy giá trị lớn nhất; hypothesis tạo từ câu hỏi và câu trả lời, hoặc ghép thô, hoặc bằng luật template đổi câu hỏi thành câu khẳng định (Chen và cộng sự 2021 cho thấy ghép thô đã là baseline mạnh). Ví dụ thật từ test: hai câu hỏi khác nhau đúng chiều của động từ. Reader chọn Baldwin cho cả hai với cùng xác suất 0.97 — reader không phân biệt được. NLI thì phân biệt: câu có đáp án được kéo theo với 0.996, câu không đáp án chỉ 0.019. Đây chính là tín hiệu bổ sung mà reader thiếu.</aside>
 </section>

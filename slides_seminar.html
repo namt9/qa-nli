@@ -74,7 +74,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <p style="font-size:24px;line-height:1.4;color:#d4d1c7">F1 của một hệ thống mạnh khi chuyển từ SQuAD 1.1 sang SQuAD 2.0, có thêm câu không đáp án (Rajpurkar và cộng sự, 2018)</p>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">2 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">2 / 51</p>
 <aside>Đặt vấn đề trước khi vào ví dụ. Hỏi đáp đọc hiểu (extractive QA) là thành phần lõi của tìm kiếm, trợ lý ảo và các hệ thống RAG: hệ thống lấy về một đoạn văn, reader trích câu trả lời từ đoạn đó. Vấn đề là trong thực tế đoạn văn thường không chứa đáp án: truy hồi nhầm, câu hỏi có tiền đề sai, hoặc hỏi điều không được nhắc tới. Reader trích xuất được huấn luyện để luôn chỉ ra một đoạn con, nên nó vẫn trả lời. Câu trả lời lại trích nguyên văn từ nguồn nên người dùng dễ tin. Hai con số cho thấy mô hình mạnh vẫn dễ vỡ: Jia và Liang 2017 chèn một câu gây nhiễu, F1 trung bình 16 mô hình giảm từ 75% xuống 36%; SQuAD 2.0 thêm câu không đáp án, hệ thống đạt 86% F1 trên SQuAD 1.1 chỉ còn 66%. Vì vậy mục tiêu của đề tài không phải là trả lời đúng nhiều hơn, mà là biết lúc nào nên trả lời.</aside>
 </section>
 <section id="problem" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -100,7 +100,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 <p style="font-size:32px;line-height:1.4;color:#1c2128"><b>Selective QA:</b> cho phép hệ thống <b>từ chối</b> khi không chắc. Đánh giá bằng đường risk–coverage và <b>AURC</b> (càng thấp càng tốt).</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">3 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">3 / 51</p>
 <aside>Ví dụ thật từ tập test. Đoạn văn nói 11 quan chức bị truy tố, câu hỏi đổi thành "former city officials ... investigated" — không có trong đoạn văn, nhưng reader vẫn trả lời "11" với xác suất 0.96. Selective QA: hệ thống trả lời khi độ tự tin vượt ngưỡng, ngược lại từ chối. Risk = tỉ lệ sai trong các câu đã trả lời; coverage = tỉ lệ câu được trả lời; AURC = diện tích dưới đường risk–coverage.</aside>
 </section>
 <section id="related" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:36px">
@@ -116,7 +116,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <div style="background:#16202c;border-radius:16px;padding:28px 40px">
 <p style="font-size:28px;line-height:1.4;color:#f3f1ea"><b>Đóng góp của đề tài:</b> đặt các hướng này trên cùng một bài toán, và giải thích bằng phân tích dữ liệu <b>vì sao</b> NLI giúp được, khi nào NLI bị lừa.</p>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">4 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">4 / 51</p>
 <aside>Bốn hướng nghiên cứu mà đề tài dựa vào. (1) Jia và Liang 2017 cho thấy chỉ cần chèn một câu gây nhiễu là mô hình đọc hiểu sai hàng loạt; Rajpurkar, Jia và Liang 2018 xây SQuAD 2.0 với câu không đáp án do người viết — đây là ngữ liệu chính. (2) Geifman và El-Yaniv 2017 đưa ra khung selective classification với đường risk–coverage; Kamath, Jia và Liang 2020 áp dụng cho QA, huấn luyện một bộ hiệu chỉnh trên đặc trưng của reader và thử khi đổi miền — đề tài dùng lại cách đánh giá này và thêm tín hiệu NLI. (3) Chen, Choi và Durrett 2021 đề xuất dùng mô hình NLI để kiểm chứng câu trả lời của hệ thống QA bằng cách đổi câu hỏi và câu trả lời thành một giả thuyết; McCoy và cộng sự 2019 (HANS) chỉ ra mô hình NLI dựa vào heuristic trùng lặp từ vựng — đề tài đo đúng hiện tượng này trên câu bẫy của SQuAD 2.0. (4) Learn-then-Test của Angelopoulos và cộng sự 2021 cho phép chọn ngưỡng có bảo đảm thống kê về rủi ro. Đóng góp không nằm ở một mô hình mới, mà ở việc đặt các hướng trên cùng một bài toán và giải thích bằng phân tích dữ liệu.</aside>
 </section>
 <section id="task-io" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:32px">
@@ -152,7 +152,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <tr><td style="padding:10px 16px;border-bottom:1px solid #e2e0d8">What town is surrounded by Jacksonville?</td><td style="padding:10px 16px;border-bottom:1px solid #e2e0d8">Baldwin</td><td style="padding:10px 16px;border-bottom:1px solid #e2e0d8;color:#1f63b5">s cao → trả lời “Baldwin”</td></tr>
 <tr><td style="padding:10px 16px">What town surrounds Jacksonville?</td><td style="padding:10px 16px">Baldwin (vẫn chọn)</td><td style="padding:10px 16px;color:#b8461a">s thấp → từ chối</td></tr>
 </table>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">5 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">5 / 51</p>
 <aside>Mô tả hình thức của bài toán. Input gồm hai thứ: một đoạn văn c (trong SQuAD 2.0 là một đoạn Wikipedia) và một câu hỏi q; q có thể không có đáp án trong c. Output gồm hai thứ: câu trả lời â, luôn là một đoạn con của c, và một độ tin cậy s. Hệ thống trả lời â khi s lớn hơn hoặc bằng ngưỡng τ, ngược lại từ chối. Ngưỡng τ chọn trên tập calib. Bên trong hệ thống: reader đề xuất span; câu hỏi và span được đổi thành một câu khẳng định h, rồi mô hình NLI kiểm tra đoạn văn có kéo theo câu đó không; hai tín hiệu được gộp thành s. Ví dụ thật từ test: cùng một câu trong đoạn văn, “What town is surrounded by Jacksonville?” có đáp án Baldwin; đảo chiều thành “What town surrounds Jacksonville?” thì không còn đáp án, nhưng reader vẫn chọn Baldwin với cùng xác suất 0.97. Output mong muốn là s thấp để hệ thống từ chối. Như vậy cái cần học không phải là câu trả lời — reader đã có — mà là điểm s.</aside>
 </section>
 <section id="task-eval" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:40px">
@@ -179,7 +179,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <p style="flex:1;font-size:28px;line-height:1.4;color:#f3f1ea"><b>Yêu cầu 1 · xếp hạng:</b> câu sai, nhất là câu không đáp án, phải có s thấp hơn câu đúng → AURC, AUROC</p>
 <p style="flex:1;font-size:28px;line-height:1.4;color:#f3f1ea"><b>Yêu cầu 2 · hiệu chỉnh:</b> s phải gần xác suất đúng để chọn τ theo mức rủi ro cho trước → ECE, Learn-then-Test</p>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">6 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">6 / 51</p>
 <aside>Cách chấm. Với từng câu có bốn trường hợp. Câu có đáp án mà hệ thống trả lời: đúng nếu F1 giữa câu trả lời và đáp án gold từ 0.5 trở lên (kết quả còn mạnh hơn với EM và F1 ≥ 0.8). Câu không đáp án mà hệ thống trả lời: luôn sai. Từ chối câu không đáp án là đúng; từ chối câu có đáp án thì không bị tính sai nhưng làm giảm coverage. Cả hệ thống: coverage là tỉ lệ câu được trả lời, risk là tỉ lệ sai trong số đó. Quét ngưỡng từ cao xuống thấp ta được đường risk–coverage; AURC là diện tích dưới đường, càng thấp càng tốt và không phụ thuộc việc chọn một ngưỡng cụ thể. Từ đó có hai yêu cầu với điểm s: xếp hạng tốt, đo bằng AURC và AUROC; và hiệu chỉnh tốt, để khi người dùng nói "chỉ chấp nhận sai tối đa 10%" ta chọn được ngưỡng có bảo đảm — đo bằng ECE và Learn-then-Test ở phần sau.</aside>
 </section>
 <section id="rq" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -202,8 +202,28 @@ x-shape[kind=ellipse]{border-radius:50%}
 <div style="background:#16202c;border-radius:16px;padding:40px 48px">
 <p style="font-size:36px;line-height:1.4;color:#f3f1ea"><b>Thông điệp:</b> khó khăn nằm ở dữ liệu — câu không đáp án được cài bẫy. NLI giúp được khi <b>kết hợp</b> với reader, không thay thế reader.</p>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">7 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">7 / 51</p>
 <aside>Ba câu hỏi nghiên cứu. Toàn bộ kết quả trên 11 873 câu SQuAD 2.0 dev, báo cáo trên tập test 8 945 câu. Nói trước thông điệp để khán giả theo dõi: phần I cho thấy vì sao bài toán khó (dữ liệu), phần II cho thấy NLI giúp đến đâu.</aside>
+</section>
+<section id="glossary-1" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:112px 128px 120px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">THUẬT NGỮ VÀ KÝ HIỆU · 1/2</p>
+<h2 style="font-size:56px;font-weight:600;line-height:1.1">Bài toán, NLI và các tín hiệu điểm</h2>
+<div style="display:flex;gap:28px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #9aa0a8;border-radius:16px;padding:24px 32px"><h3 style="font-size:30px;font-weight:600">Bài toán QA</h3><table style="width:100%;font-size:28px"><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">QA</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">Question Answering: hỏi đáp trên đoạn văn</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">Reader</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">mô hình đọc hiểu, chọn câu trả lời trong đoạn văn</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">Span</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">đoạn con liên tiếp của đoạn văn, dùng làm câu trả lời</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">Ứng viên · top-1, top-5</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">span reader đề xuất · hạng 1 · 5 span tốt nhất</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">null</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">lựa chọn “không có đáp án” của reader</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">ĐA</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">đáp án; câu không ĐA = câu không có đáp án trong đoạn</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">Đáp án mồi</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">span trông giống đáp án trong câu không ĐA</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">Edge case</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">trường hợp biên: kiểu câu khó, dễ gây lỗi</td></tr><tr><td style="padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">Selective QA</td><td style="padding:13px 0;line-height:1.3">QA được phép từ chối khi không chắc</td></tr></table></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #7fb0e6;border-radius:16px;padding:24px 32px"><h3 style="font-size:30px;font-weight:600">NLI và tín hiệu điểm</h3><table style="width:100%;font-size:28px"><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">NLI</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">Natural Language Inference: suy diễn ngôn ngữ tự nhiên</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">Premise</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">tiền đề: văn bản làm căn cứ (ở đây là đoạn văn)</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">Hypothesis</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">giả thuyết: câu khẳng định tạo từ (câu hỏi, đáp án)</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">Entail · contra · neutral</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">kéo theo · mâu thuẫn · trung lập (3 nhãn NLI)</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">Verifier</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">bộ kiểm chứng: mô hình NLI chấm câu trả lời</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">P_reader</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">xác suất reader gán cho span được chọn</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">margin</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">điểm span trừ điểm null của reader</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">P_entail · P_contra</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">xác suất NLI cho nhãn kéo theo · mâu thuẫn</td></tr><tr><td style="padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">concat · template</td><td style="padding:13px 0;line-height:1.3">ghép thô “câu hỏi + đáp án” · luật đổi thành câu khẳng định</td></tr></table></div>
+</div>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">8 / 51</p>
+<aside>Slide tra cứu, không cần đọc hết; nói lướt khoảng 30 giây. Nhóm giữ nguyên một số thuật ngữ tiếng Anh vì đó là tên chuẩn trong tài liệu. Reader là mô hình đọc hiểu chọn span; null là lựa chọn không có đáp án. NLI: cho tiền đề (premise) và giả thuyết (hypothesis), hỏi tiền đề có kéo theo giả thuyết không. Ba tín hiệu chính: P_reader và margin của reader, P_entail và P_contra của NLI.</aside>
+</section>
+<section id="glossary-2" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:112px 128px 120px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">THUẬT NGỮ VÀ KÝ HIỆU · 2/2</p>
+<h2 style="font-size:56px;font-weight:600;line-height:1.1">Ký hiệu phương pháp và thước đo</h2>
+<div style="display:flex;gap:28px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #2a78d6;border-radius:16px;padding:24px 32px"><h3 style="font-size:30px;font-weight:600">Phương pháp và mô hình</h3><table style="width:100%;font-size:28px"><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">B1</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">Baseline 1: độ tin cậy = P_reader</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">B2</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">Baseline 2: độ tin cậy = margin (span so với null)</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">V</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">Verify: giữ top-1, độ tin cậy = P_entail</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">R</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">Rerank: chọn lại trong top-5 theo λ·P_reader + (1−λ)·P_entail</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">C</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">Combine: hồi quy logistic gộp P_reader, margin, P_entail, P_contra</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">λ · τ</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">trọng số reader/NLI trong R · ngưỡng: điểm ≥ τ thì trả lời</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">xs · base · large</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">cỡ DeBERTa-v3: 71M · 184M · 435M tham số</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">-qa</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">bản verifier tinh chỉnh (fine-tune) thêm trên SQuAD 2.0 train</td></tr><tr><td style="padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">full · sent · win3</td><td style="padding:13px 0;line-height:1.3">premise là cả đoạn · từng câu · cửa sổ 3 câu</td></tr></table></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #16202c;border-radius:16px;padding:24px 32px"><h3 style="font-size:30px;font-weight:600">Đánh giá</h3><table style="width:100%;font-size:28px"><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">Coverage · risk</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">tỉ lệ câu được trả lời · tỉ lệ sai trong số đó</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">AURC ↓</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">diện tích dưới đường risk–coverage: rủi ro TB, càng thấp càng tốt</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">AUROC ↑</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">khả năng điểm tách câu đúng / sai, càng cao càng tốt</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">EM · F1</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">khớp tuyệt đối · độ trùng từ với đáp án chuẩn</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">SQuAD2-F1</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">F1 tính cả câu không ĐA (từ chối đúng = 1)</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">calib · test</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">25% dev để chọn tham số · 75% dev chỉ để báo cáo</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">CI · bootstrap</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">khoảng tin cậy 95% · ước lượng bằng lấy mẫu lại</td></tr><tr><td style="border-bottom:1px solid #e2e0d8;padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">LTT · δ</td><td style="border-bottom:1px solid #e2e0d8;padding:13px 0;line-height:1.3">Learn-then-Test: chọn ngưỡng có bảo đảm rủi ro · xác suất bảo đảm sai</td></tr><tr><td style="padding:13px 16px 13px 0;font-weight:600;white-space:nowrap;vertical-align:top;color:#1c2128">OOD</td><td style="padding:13px 0;line-height:1.3">out-of-domain, ngoài miền: NQ, NewsQA, AddSent</td></tr></table></div>
+</div>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">9 / 51</p>
+<aside>Slide tra cứu, nói lướt khoảng 30 giây. Năm phương pháp được so sánh: hai baseline chỉ dùng reader (B1 xác suất, B2 margin), V chỉ dùng NLI, R xếp hạng lại top-5, C gộp bốn tín hiệu bằng hồi quy logistic — C là phương pháp chính. Thước đo chính là AURC: rủi ro trung bình trên mọi mức coverage, càng thấp càng tốt. Mọi tham số chọn trên calib, test chỉ để báo cáo.</aside>
 </section>
 <section id="data-roadmap" data-transition="fade" style="background:#16202c;color:#f3f1ea;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
 <p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#7fb3f0">PHẦN I · PHÂN TÍCH DỮ LIỆU</p>
@@ -225,7 +245,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <p style="font-size:26px;line-height:1.4;color:#c9ccd2">Tỉ lệ quyết định sai trên mỗi edge case so với mức chung</p>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#8a94a3">8 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#8a94a3">10 / 51</p>
 <aside>Lộ trình phần dữ liệu. Câu hỏi 1: các slide tổng quan, loại câu hỏi, câu không đáp án trông như câu có đáp án. Câu hỏi 2 và 3: bảng edge case, rồi đi sâu vào hai phát hiện lớn nhất — lối tắt phủ định trong dữ liệu, và giới hạn do nhãn nhiễu, đáp án mơ hồ. "Quyết định đúng" nghĩa là trả lời đúng câu có đáp án, hoặc từ chối câu không đáp án, ở ngưỡng chọn trên calib.</aside>
 </section>
 <section id="data-overview" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
@@ -255,7 +275,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <tr><td style="padding:16px 24px">test (75%)</td><td style="text-align:right;padding:16px 24px">8 945</td><td style="text-align:right;padding:16px 24px">50.0</td><td style="padding:16px 24px">chỉ để báo cáo</td></tr>
 </table>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">Chia cố định bằng hash của id câu hỏi · Rajpurkar, Jia, Liang (2018)</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">9 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">11 / 51</p>
 <aside>SQuAD 2.0 bổ sung các câu không đáp án do người viết, dựa trên cùng đoạn văn của SQuAD 1.1. Chúng tôi dùng toàn bộ dev 11 873 câu. Tập calib và test được chia cố định bằng hash id, cân bằng tỉ lệ không đáp án. Mọi lựa chọn (setting, λ, ngưỡng) đều làm trên calib, test chỉ để báo cáo.</aside>
 </section>
 <section id="qtype" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -275,7 +295,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <p style="font-size:32px;line-height:1.4">→ Từ để hỏi không đủ để đoán câu có đáp án hay không.</p>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">10 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">12 / 51</p>
 <aside>Phân bố từ để hỏi trên toàn bộ dev, tách theo nhóm có đáp án (xanh) và không đáp án (cam). Hai nhóm gần như giống nhau, nên loại câu hỏi không phải là dấu hiệu để phân biệt. Ngoại lệ là "which": người ra đề ít tạo câu không đáp án với "which".</aside>
 </section>
 <section id="lookalike" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -294,7 +314,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <tr><td style="padding:14px 16px"><b>Đáp án mồi trong đoạn</b></td><td style="text-align:right;padding:14px 16px">–</td><td style="text-align:right;padding:14px 16px"><b>99.7%</b></td></tr>
 </table>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">11 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">13 / 51</p>
 <aside>Overlap = tỉ lệ từ nội dung của câu hỏi xuất hiện trong đoạn văn. Hai phân bố gần như trùng nhau; độ dài câu hỏi, đoạn văn (trung vị) và loại đáp án cũng giống nhau. Dấu hiệu bề mặt duy nhất là từ phủ định. Và gần như mọi câu không đáp án đều có một "plausible answer" — đáp án mồi người ra đề ghi lại — nằm ngay trong đoạn văn.</aside>
 </section>
 <section id="one-paragraph" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:36px">
@@ -311,7 +331,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <tr><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">What was the significance of British <b>loss</b>?</td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8;color:#b8461a">không đáp án</td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">trái nghĩa (win → loss)</td></tr>
 <tr><td style="padding:12px 20px">What was the <b>insignificance</b> of British win?</td><td style="padding:12px 20px;color:#b8461a">không đáp án</td><td style="padding:12px 20px">trái nghĩa (significance → insignificance)</td></tr>
 </table>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">12 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">14 / 51</p>
 <aside>Ví dụ thật từ tập test, cùng một đoạn văn về kết cục chiến tranh Pháp–Anh. Người ra đề SQuAD 2.0 lấy câu hỏi có đáp án rồi sửa một chút để thành câu không đáp án: thêm phủ định, đổi thực thể, dùng từ trái nghĩa. Mọi câu đều giữ gần như nguyên từ ngữ và có một "đáp án mồi" nằm ngay trong đoạn. Đây là lý do câu không đáp án trông giống hệt câu có đáp án. Đoạn này còn có thêm "What land wasn't ceded to Spain?" — cũng là phủ định.</aside>
 </section>
 <section id="trap" data-transition="fade" style="background:#16202c;color:#f3f1ea;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -328,7 +348,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 <p style="font-size:32px;line-height:1.4;color:#c9ccd2">Phần còn lại — khoảng 1 / 6 câu không đáp án — là nơi cần một bộ kiểm chứng.</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#8a94a3">13 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#8a94a3">15 / 51</p>
 <aside>Hai phần ba số câu không đáp án, reader chọn đúng span mà người ra đề đã cài làm mồi. Reader cũng có tín hiệu "null": 82% câu không đáp án nó tự từ chối được (75–85% tùy loại câu hỏi). Phần còn lại là nơi một bộ kiểm chứng như NLI có thể giúp.</aside>
 </section>
 <section id="where-errors" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -350,7 +370,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <p style="font-size:32px;line-height:1.4">→ Phần lớn rủi ro đến từ <b>câu không đáp án</b> bị trả lời.</p>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">14 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">16 / 51</p>
 <aside>Biểu đồ là trên tập test. Ở câu có đáp án, top-1 đã đúng 93.3%; thêm 4 ứng viên nữa chỉ lên 97.6%. Chỉ 195 câu có thể được sửa bằng cách chọn lại ứng viên — đó là mức trần của rerank. Vì vậy trọng tâm của bài toán là quyết định có trả lời hay không.</aside>
 </section>
 <section id="categories" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
@@ -374,7 +394,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">100 câu không đáp án ngẫu nhiên từ test, nhóm cùng gán nhãn (chưa đo độ đồng thuận) · NLI = nli-large · C = combo, ngưỡng chọn trên calib</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">15 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">17 / 51</p>
 <aside>Chúng tôi gán nhãn 100 câu không đáp án theo 7 loại của Rajpurkar 2018. NLI xử lý rất tốt câu bị sửa từ ngữ (phủ định, trái nghĩa): P_entail gần 0, không hệ thống nào trả lời. Lỗi tập trung ở loại "khác" và ở 3 câu thực ra có đáp án — lỗi nhãn của SQuAD 2.0. ENT chiếm tỉ lệ cao một phần vì quy tắc gán của nhóm xét ENT trước MUT, IMP và hiểu ENT rộng. Nói rõ: nhãn do nhóm cùng gán, chưa đo độ đồng thuận.</aside>
 </section>
 <section id="types-all" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
@@ -396,7 +416,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">Luật: so câu hỏi với câu chứa plausible answer · “trả lời” = trả lời sai, ở ngưỡng chọn trên calib · NLI = nli-large</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">16 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">18 / 51</p>
 <aside>Mở rộng phân tích từ 100 câu gán tay ra toàn bộ 4 469 câu không đáp án của test bằng một luật đơn giản: so câu hỏi với câu chứa đáp án mồi. Kết quả nhất quán với mẫu gán tay: câu bị sửa từ ngữ (trái nghĩa, phủ định) thì NLI phát hiện tốt; câu giữ nguyên từ nhưng đổi điều kiện hay phạm vi thì khó nhất — C vẫn trả lời 16%. Luật chỉ khớp nhãn tay 54% nên chỉ đọc như xu hướng.</aside>
 </section>
 <section id="edge-overview" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:32px">
@@ -418,7 +438,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <tr><td style="padding:10px 12px">Câu hỏi phủ định, không ĐA</td><td style="text-align:right;padding:10px 12px">13.1</td><td style="text-align:right;padding:10px 12px;color:#1f63b5"><b>−10.9</b></td></tr>
 </table>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">17 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">19 / 51</p>
 <aside>Mỗi edge case được phát hiện tự động (11 loại, xem scripts/edge_cases.py) và đếm trên 8 945 câu test. "Sai thêm" = tỉ lệ quyết định sai trên nhóm đó trừ đi mức chung của các câu cùng loại (có đáp án: B2 sai 17.3%; không đáp án: 14.0%). Thanh xám là reader một mình (B2), thanh xanh là C với verifier tinh chỉnh. Hai edge case gây hại nhiều nhất: câu phủ định có đáp án và đáp án gold không thống nhất — hai slide sau đi sâu. Ngược lại câu phủ định không đáp án lại DỄ hơn mức chung, dấu hiệu của một lối tắt.</aside>
 </section>
 <section id="edge-examples-unans" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:24px">
@@ -450,7 +470,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <p style="font-size:24px;line-height:1.35">B2 và C: “carbon dioxide” <span style="color:#b8461a">✗</span> (CO là carbon monoxide)</p>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">18 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">20 / 51</p>
 <aside>Bốn ví dụ thật từ tập test, mỗi ví dụ một edge case của câu không đáp án. (1) Cặp gần giống: cùng đoạn có câu "What title did Iroquois give Johnson?" có đáp án; đổi Iroquois thành Sioux là thành câu không đáp án, reader vẫn trả lời. (2) Mọi từ có trong đoạn nhưng đảo vai: Jacksonville bao quanh Baldwin chứ không ngược lại. (3) Thêm phủ định. (4) Câu hỏi quá ngắn: CO (carbon monoxide) khác CO2 (carbon dioxide) một ký tự — cả reader lẫn NLI đều không nhận ra. C xử lý đúng ba ví dụ đầu.</aside>
 </section>
 <section id="edge-examples-ans" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:24px">
@@ -482,7 +502,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <p style="font-size:24px;line-height:1.35">B2: từ chối <span style="color:#b8461a">✗</span> · C: “3.07” <span style="color:#1f63b5">✓</span></p>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">19 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">21 / 51</p>
 <aside>Mặt kia của vấn đề: reader đã tìm đúng đáp án nhưng không đủ tự tin nên từ chối. (1) Câu phủ định có đáp án — đúng lối tắt "phủ định thì không có đáp án". Đáng chú ý: cùng đoạn này, câu KHÔNG phủ định "…should be called social classes?" lại là câu không đáp án. (2) Câu "which country … last" không đổi được thành câu khẳng định bằng luật. (3) Đáp án "pollution" xuất hiện nhiều lần trong đoạn. (4) Ngay cả câu rất dễ như "average household size was 3.07" reader cũng từ chối. Trong cả bốn ví dụ, NLI xác nhận đoạn văn kéo theo câu trả lời nên C trả lời đúng.</aside>
 </section>
 <section id="negation-shortcut" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
@@ -503,7 +523,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">“Đúng” = trả lời đúng câu có ĐA hoặc từ chối câu không ĐA, ở ngưỡng chọn trên calib · C dùng nli-large-qa · hiện tượng “annotation artifact” (Gururangan et al., 2018)</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">20 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">22 / 51</p>
 <aside>Phát hiện từ dữ liệu: người ra đề SQuAD 2.0 hay thêm phủ định để tạo câu không đáp án, nên phủ định trở thành một dấu hiệu của câu không đáp án. Reader học được lối tắt này: câu phủ định không đáp án rất dễ (96.9% đúng), nhưng câu phủ định CÓ đáp án thì bị từ chối nhầm — reader tìm đúng span ở 90% số câu mà chỉ 70% được trả lời đúng. Đây là "annotation artifact", giống hiện tượng Gururangan và cộng sự (2018) chỉ ra ở SNLI. NLI kiểm tra xem đoạn văn có kéo theo câu trả lời không, nên C thu hẹp khoảng cách từ 13 xuống 7 điểm. Lưu ý nhóm có đáp án chỉ 125 câu.</aside>
 </section>
 <section id="edge-examples-eval" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:24px">
@@ -534,7 +554,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <p style="font-size:24px;line-height:1.35;color:#5a6170">Bộ tách câu cắt sau dấu chấm viết tắt → premise theo câu bị thiếu đáp án</p>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">21 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">23 / 51</p>
 <aside>Những edge case không nằm ở mô hình mà ở nhãn và công cụ. (1) Hai đáp án gold mâu thuẫn về năm xây nhà thờ, và hệ thống còn trả về span bị cắt dở "1688–16". (2) Gold chứa đáp án sai: "France" không phải là vùng đất được nhượng. (3) Câu hỏi thiếu dấu chấm hỏi, đáp án dài: hệ thống trả lời một mô tả cũng đúng nhưng khác chữ nên bị chấm sai. (4) Hạn chế của chính công cụ của nhóm: bộ tách câu cắt sau các từ viết tắt (W., St., ca.), nên khi chia đoạn theo câu, premise có thể thiếu đáp án; phần lớn 34 câu "đáp án vắt qua hai câu" là do lỗi này. Cần sửa bộ tách câu trong bước tiếp theo.</aside>
 </section>
 <section id="eval-ambiguity" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:40px">
@@ -560,7 +580,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 <p style="font-size:30px;line-height:1.4">→ Một phần “lỗi” là giới hạn của nhãn và thước đo: hệ thống hoàn hảo cũng không đạt 100%.</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">22 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">24 / 51</p>
 <aside>Ba loại nhiễu của chính dữ liệu, ảnh hưởng tới cả việc đánh giá. (1) Gần 1/5 câu có đáp án có các đáp án gold lệch nhau; nhóm này khó cho mọi hệ thống và chiếm 34% số câu có đáp án mà hệ thống tốt nhất trả lời sai. (2) Đáp án đúng nhưng khác chữ: tên tiếng Ba Lan "Ogród Saski" và tên tiếng Anh "Saxon Garden" là cùng một nơi; gần một nửa lỗi trả lời sai còn lại là lệch biên span (có chồng lấn với gold nhưng F1 &lt; 0.5). (3) Nhãn sai: cùng đoạn văn, "What was the Song dynasty's capital?" có đáp án Hangzhou, nhưng "Where was…" lại bị gán không đáp án. Trong 100 câu gán tay, 3% như vậy; trong 355 câu không đáp án mà hệ thống tốt nhất vẫn trả lời, 32 câu (9%) bị nghi nhãn sai (reader ≥ 0.9 và NLI ≥ 0.95).</aside>
 </section>
 <section id="data-to-method" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:40px">
@@ -604,7 +624,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">23 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">25 / 51</p>
 <aside>Slide nối giữa phần dữ liệu và phần phương pháp: mỗi phát hiện ở phần I dẫn tới một quyết định thiết kế. (1) Reader hiếm khi chọn sai span ở câu có đáp án — top-1 đúng 93.3%, chỉ 195 câu có đáp án đúng nằm ở hạng 2–5 — nên bài toán thật là quyết định có trả lời hay không; xếp hạng lại (R) chỉ là hướng phụ. (2) Câu không đáp án được viết lại từ một câu thật, giữ gần hết từ ngữ và chỉ đổi một thực thể, thêm phủ định hoặc dùng từ trái nghĩa; đặc trưng bề mặt không phân biệt được. Điều cần là kiểm tra đoạn văn có thực sự kéo theo câu trả lời không — đúng định nghĩa của bài toán NLI. (3) Reader đã có tín hiệu null rất mạnh, tự từ chối được 82% câu không đáp án; vì vậy NLI nên là tín hiệu bổ sung, kết hợp với reader, chứ không thay thế. (4) NLI học trên MNLI chưa từng thấy loại bẫy giữ nguyên từ ngữ này; vì vậy chúng em tinh chỉnh verifier trên các cặp lấy từ SQuAD 2.0 train.</aside>
 </section>
 <section id="nli-qa" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
@@ -613,13 +633,13 @@ x-shape[kind=ellipse]{border-radius:50%}
 <div style="display:flex;gap:32px">
 <div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:28px 32px">
 <h3 style="font-size:28px;font-weight:600">NLI là gì</h3>
-<p style="font-size:24px;line-height:1.4">Cho <b>premise</b> P và <b>hypothesis</b> H, phân loại 3 nhãn: <b>kéo theo</b>, <b>mâu thuẫn</b>, <b>trung lập</b>.</p>
-<p style="font-size:24px;line-height:1.4;color:#5a6170">Mô hình cross-encoder đọc cặp [P; H] → softmax 3 lớp. Đề tài dùng P_entail và P_contra.</p>
+<p style="font-size:24px;line-height:1.4">Cho <b>premise</b> P (tiền đề) và <b>hypothesis</b> H (giả thuyết), phân loại 3 nhãn: <b>kéo theo</b>, <b>mâu thuẫn</b>, <b>trung lập</b>.</p>
+<p style="font-size:24px;line-height:1.4;color:#5a6170">Mô hình cross-encoder (đọc chung cặp [P; H]) → xác suất 3 nhãn. Đề tài dùng P_entail (kéo theo) và P_contra (mâu thuẫn).</p>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:28px 32px">
 <h3 style="font-size:28px;font-weight:600">Ánh xạ QA → NLI</h3>
 <p style="font-size:24px;line-height:1.4"><b>Premise</b> = đoạn văn c: cả đoạn, từng câu, hoặc cửa sổ 3 câu (lấy max P_entail)</p>
-<p style="font-size:24px;line-height:1.4"><b>Hypothesis</b> = h(q, â): ghép thô “q â”, hoặc <b>template</b> đổi câu hỏi thành câu khẳng định</p>
+<p style="font-size:24px;line-height:1.4"><b>Hypothesis</b> = h(q, â): <b>concat</b> (ghép thô “q â”), hoặc <b>template</b> đổi câu hỏi thành câu khẳng định</p>
 </div>
 </div>
 <p style="font-size:26px;line-height:1.4"><b>Ví dụ.</b> Premise: “Jacksonville surrounds the town of Baldwin.”</p>
@@ -629,7 +649,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <tr><td style="padding:10px 14px">What town surrounds Jacksonville? <span style="color:#b8461a">(không ĐA)</span></td><td style="padding:10px 14px">Baldwin town surrounds Jacksonville.</td><td style="text-align:right;padding:10px 14px">0.97</td><td style="text-align:right;padding:10px 14px;color:#b8461a">0.019</td></tr>
 </table>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">Cả hai câu reader đều chọn “Baldwin” · P_entail của nli-large-qa, premise cả đoạn · template đôi khi sai ngữ pháp, NLI vẫn chịu được</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">24 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">26 / 51</p>
 <aside>Ý tưởng cốt lõi của phương pháp. NLI (suy diễn ngôn ngữ tự nhiên) cho một cặp premise và hypothesis, hỏi premise có kéo theo hypothesis không, với ba nhãn kéo theo, mâu thuẫn, trung lập. Mô hình là cross-encoder: đọc chung hai câu, ra phân phối 3 lớp. Để dùng cho QA: premise là đoạn văn, có thể đưa cả đoạn, từng câu hoặc cửa sổ 3 câu rồi lấy giá trị lớn nhất; hypothesis tạo từ câu hỏi và câu trả lời, hoặc ghép thô, hoặc bằng luật template đổi câu hỏi thành câu khẳng định (Chen và cộng sự 2021 cho thấy ghép thô đã là baseline mạnh). Ví dụ thật từ test: hai câu hỏi khác nhau đúng chiều của động từ. Reader chọn Baldwin cho cả hai với cùng xác suất 0.97 — reader không phân biệt được. NLI thì phân biệt: câu có đáp án được kéo theo với 0.996, câu không đáp án chỉ 0.019. Đây chính là tín hiệu bổ sung mà reader thiếu.</aside>
 </section>
 <section id="pipeline" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -657,13 +677,13 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 <table style="font-size:28px;width:1664px">
-<tr><th style="text-align:left;padding:12px 20px;border-bottom:2px solid #1c2128;width:120px">Ký hiệu</th><th style="text-align:left;padding:12px 20px;border-bottom:2px solid #1c2128">Câu trả lời</th><th style="text-align:left;padding:12px 20px;border-bottom:2px solid #1c2128">Độ tự tin</th></tr>
-<tr><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8"><b>B1 / B2</b></td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">top-1 của reader</td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">xác suất span / margin so với null</td></tr>
-<tr><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8"><b>V</b></td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">top-1 của reader</td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">P(entail) của NLI</td></tr>
-<tr><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8"><b>R</b></td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">chọn lại trong top-5: λ·P_reader + (1−λ)·P_entail</td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">cùng công thức</td></tr>
-<tr><td style="padding:12px 20px"><b>C</b></td><td style="padding:12px 20px">top-1 của reader</td><td style="padding:12px 20px">hồi quy logistic trên [P_reader, margin, P_entail, P_contra]</td></tr>
+<tr><th style="text-align:left;padding:12px 20px;border-bottom:2px solid #1c2128;width:330px">Ký hiệu</th><th style="text-align:left;padding:12px 20px;border-bottom:2px solid #1c2128">Câu trả lời</th><th style="text-align:left;padding:12px 20px;border-bottom:2px solid #1c2128">Độ tự tin</th></tr>
+<tr><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8"><b>B1 / B2</b><span style="font-weight:400;color:#5a6170"> · baseline</span></td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">top-1 của reader</td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">P_reader (xác suất span) / margin (span so với null)</td></tr>
+<tr><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8"><b>V</b><span style="font-weight:400;color:#5a6170"> · verify</span></td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">top-1 của reader</td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">P_entail (xác suất kéo theo) của NLI</td></tr>
+<tr><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8"><b>R</b><span style="font-weight:400;color:#5a6170"> · rerank</span></td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">chọn lại trong top-5: λ·P_reader + (1−λ)·P_entail</td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">cùng công thức</td></tr>
+<tr><td style="padding:12px 20px"><b>C</b><span style="font-weight:400;color:#5a6170"> · combine</span></td><td style="padding:12px 20px">top-1 của reader</td><td style="padding:12px 20px">hồi quy logistic trên [P_reader, margin, P_entail, P_contra]</td></tr>
 </table>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">25 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">27 / 51</p>
 <aside>Reader trích xuất trả về 5 ứng viên kèm xác suất null. Mỗi ứng viên được ghép với câu hỏi thành giả thuyết: concat (ghép thô) hoặc template (đổi thành câu khẳng định bằng luật). Đoạn văn là premise, có thể chia thành câu (sent) hoặc cửa sổ 3 câu (win3), lấy max P(entail) qua các mảnh. Ba verifier: DeBERTa-v3 xsmall/base/large NLI. Bốn họ phương pháp; λ, ngưỡng τ và hồi quy logistic đều chọn/huấn luyện trên calib.</aside>
 </section>
 <section id="models" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:32px">
@@ -694,7 +714,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <div style="background:#16202c;border-radius:16px;padding:24px 40px">
 <p style="font-size:26px;line-height:1.4;color:#f3f1ea"><b>Thiết lập:</b> dev 11 873 câu → <b>calib</b> 2 928 (chọn cách chia đoạn, λ, τ, học C) / <b>test</b> 8 945 (chỉ báo cáo) · baseline B1, B2 · bootstrap theo cặp và theo bài · Colab T4</p>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">26 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">28 / 51</p>
 <aside>Chi tiết các mô hình. Reader là RoBERTa-base đã được deepset huấn luyện trên SQuAD 2.0 train; nhóm giữ nguyên, lấy 5 span tốt nhất và điểm null, xác suất là softmax trên null cùng các span nên so sánh được giữa các câu. Verifier là ba checkpoint DeBERTa-v3 công khai: xs và base học trên SNLI và MNLI, large học trên năm bộ NLI. Biến thể -qa được tinh chỉnh thêm trên 60 000 cặp lấy từ SQuAD 2.0 train, không dùng dev: đáp án đúng là kéo theo; câu bẫy kèm đáp án mồi, và đáp án của một câu hỏi khác trong cùng đoạn, là không kéo theo. Premise lúc huấn luyện là câu hoặc cửa sổ chứa span, giống lúc suy luận. Tinh chỉnh 1 epoch, learning rate 2e-5, ép fp32 vì fp16 làm hỏng huấn luyện. Bộ kết hợp C là hồi quy logistic bốn đặc trưng học trên calib; ngưỡng τ chọn để tối đa SQuAD2-F1 trên calib. Learn-then-Test: lưới 100 ngưỡng cố định từ calib, kiểm định nhị thức chính xác cho từng ngưỡng, hiệu chỉnh Bonferroni, δ = 0.1. Mọi lựa chọn làm trên calib, test chỉ để báo cáo.</aside>
 </section>
 <section id="entail" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -711,7 +731,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <tr><td style="padding:14px 16px">Không đáp án<br><span style="color:#5a6170">n = 4 469</span></td><td style="text-align:right;padding:14px 16px;font-size:44px;font-weight:700;color:#b8461a">0.25</td></tr>
 </table>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">27 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">29 / 51</p>
 <aside>NLI = nli-large với template, chia win3. Ở câu không đáp án, P_entail tập trung gần 0 — NLI nhận ra đoạn văn không kéo theo câu trả lời. Nhưng 68% top-1 sai ở câu có đáp án vẫn có P_entail ≥ 0.5: span sai thường chồng lấn với span đúng hoặc nằm cùng câu, nên vẫn "được kéo theo". Vì vậy NLI hữu ích cho việc từ chối hơn là cho việc chọn span.</aside>
 </section>
 <section id="hans" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -733,7 +753,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <p style="font-size:28px;line-height:1.4">Đúng heuristic “trùng lặp từ vựng” mà HANS chỉ ra ở mô hình NLI (McCoy et al., 2019).</p>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">28 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">30 / 51</p>
 <aside>Overlap = tỉ lệ từ nội dung của giả thuyết (câu hỏi + ứng viên top-1) xuất hiện trong mảnh premise khớp nhất. Khi mọi từ của giả thuyết đều có trong đoạn văn — điều người ra đề SQuAD 2.0 cố ý làm khi chỉ đổi điều kiện hoặc vai trò — NLI chấp nhận câu không đáp án nhiều hơn hẳn: 37% so với 22–24%. Đây là heuristic trùng lặp từ vựng mà McCoy và cộng sự (2019) chỉ ra bằng bộ HANS. Đây cũng là động lực cho thí nghiệm tinh chỉnh verifier với mẫu âm là chính các câu bẫy.</aside>
 </section>
 <section id="main" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
@@ -756,7 +776,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">Test 8 945 câu · V, R, C dùng nli-large (template, win3) · số liệu ×100 · paired bootstrap 1 000 lần</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">29 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">31 / 51</p>
 <aside>Bảng chính. B2 (margin so với null) mạnh hơn B1 rõ rệt, nên B2 là baseline cần vượt. Chỉ dùng NLI thì ngang B2. Kết hợp bằng hồi quy logistic (C) giảm AURC 1.7 điểm so với B2, khoảng tin cậy hẹp và p &lt; 0.001 theo paired bootstrap. Biến thể RC (rerank + combo) đạt 21.2 nhưng chỉ hơn C 0.16 điểm, nên chúng tôi chọn C vì đơn giản hơn.</aside>
 </section>
 <section id="robust" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -789,7 +809,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">30 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">32 / 51</p>
 <aside>Bốn kiểm tra độ vững của kết quả chính (C so với B2, nli-large). (1) Câu hỏi cùng đoạn văn không độc lập, nên chúng tôi bootstrap theo đoạn văn và theo bài: khoảng tin cậy rộng hơn chút nhưng vẫn xa 0 (theo đoạn [−2.03, −1.45], theo bài [−2.06, −1.38]). R cũng vẫn có ý nghĩa khi lấy mẫu theo bài [−1.49, −0.14], còn V thì không. (2) C tốt hơn B2 ở 34/35 bài. (3) Với tiêu chí chặt hơn (EM, F1 ≥ 0.8) mức cải thiện còn lớn hơn: −2.9 và −2.2; R cũng vậy: −2.3 và −1.5. (4) Học C chỉ cần ít dữ liệu: 50 câu calib đã giảm 1.2 điểm, 500 câu giảm 1.6.</aside>
 </section>
 <section id="inside-c" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -815,7 +835,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">31 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">33 / 51</p>
 <aside>Bảng trái: bỏ từng đặc trưng và học lại C trên calib. Margin so với null quan trọng nhất (bỏ đi AURC tăng 1 điểm); P_entail là đặc trưng thứ hai (bỏ đi tăng 0.45); chỉ margin + P_entail đã đạt phần lớn mức cải thiện. Hệ số âm của P_contra: cùng P_entail, mâu thuẫn cao hơn thì ít tin hơn. Biểu đồ phải: độ hiệu chỉnh xác suất. P(entail) của NLI quá tự tin (ECE 15.0): ở mức 0.8–0.9 chỉ khoảng 35% đúng. Xác suất của reader thì tự ti (ECE 11.0). C được học trên calib nên gần như hiệu chỉnh hoàn hảo (ECE 1.1) — dùng được trực tiếp làm "xác suất đúng" để đặt ngưỡng.</aside>
 </section>
 <section id="coverage" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -834,7 +854,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <p style="font-size:28px;line-height:1.4">→ Hợp với ứng dụng cần <b>độ chính xác cao</b> (y tế, pháp lý): trả lời ít hơn nhưng đúng hơn.</p>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">32 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">34 / 51</p>
 <aside>Hiệu risk của từng phương pháp so với B2 tại cùng mức coverage. C giảm risk 2–3.5 điểm % ở vùng coverage 10–50%, tức khi hệ thống được phép từ chối nhiều. Khi phải trả lời trên 75% số câu thì các phương pháp gần như bằng nhau. R chỉ giúp ở quanh coverage 40–50%; V (chỉ NLI) còn kém B2 ở vùng 50–80%.</aside>
 </section>
 <section id="size" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -855,7 +875,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <p style="font-size:30px;line-height:1.4;color:#5a6170">Viết lại giả thuyết bằng LLM (Qwen2.5-1.5B) không tốt hơn template (bản 2k).</p>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">33 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">35 / 51</p>
 <aside>Biểu đồ: AURC theo kích thước verifier. V cải thiện mạnh khi lên large (29.5 → 23.4). C gần như không đổi theo kích thước: ngay cả verifier nhỏ cũng bổ sung được cho reader khi kết hợp. Bảng: template tốt hơn concat ở mọi kích thước, rõ nhất ở xs, base (5–9 điểm); với large chênh lệch nhỏ. Chúng tôi cũng thử viết lại giả thuyết bằng Qwen2.5-1.5B trên bản 2k: ngang template với mô hình nhỏ, kém hơn với large.</aside>
 </section>
 <section id="rerank" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
@@ -896,7 +916,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">Chọn lại rồi kết hợp (RC) chỉ hơn C 0.16 điểm AURC → giữ C làm phương pháp chính · ΔAURC ×100, paired bootstrap</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">34 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">36 / 51</p>
 <aside>R chọn lại câu trả lời trong top-5 theo λ·P_reader + (1−λ)·P_entail. Với verifier nhỏ, R làm kém hơn B2; chỉ với nli-large R mới tốt hơn có ý nghĩa. R-large sửa đúng 44 câu và làm sai 24 câu, trong khi trần là 195 câu. Ví dụ sửa đúng: reader chọn "Nepali" vì câu có nhắc tới, NLI nhận ra đoạn văn nói "The medium of education is English". Ví dụ làm sai: span dài vẫn được NLI chấp nhận nhưng F1 với gold thấp. Trên toàn bộ dữ liệu, độ dài ứng viên gần như không tương quan với P_entail (−0.01), nên đây là lỗi ở phần đuôi chứ không phải xu hướng chung.</aside>
 </section>
 <section id="breakdown" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
@@ -927,7 +947,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 <p style="font-size:32px;line-height:1.4">Đồng thời C vẫn trả lời <b>89.1%</b> câu có đáp án (B2: 87.1%) → từ chối đúng chỗ hơn, không phải từ chối nhiều hơn.</p>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">Test: 4 469 câu không đáp án, 4 476 câu có đáp án · V, C, R dùng nli-large</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">35 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">37 / 51</p>
 <aside>Ở ngưỡng chọn trên calib để tối đa SQuAD2-F1, B2 vẫn trả lời 14% câu không đáp án. Kết hợp NLI giảm xuống 10.9%, xếp hạng lại xuống 9.9%. Quan trọng là C không đạt được điều này bằng cách từ chối nhiều hơn: nó còn trả lời nhiều câu có đáp án hơn B2 (89.1% so với 87.1%).</aside>
 </section>
 <section id="finetune" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
@@ -944,7 +964,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </table>
 <p style="font-size:28px;line-height:1.4"><b>nli-large-qa tốt hơn nli-large</b> ở mọi phương pháp (C −1.0, V −2.8; p &lt; 0.001), và lần đầu <b>chỉ NLI đã thắng reader</b>: V − B2 = −2.5.</p>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">AURC ×100 trên test 8 945 câu, B2 = 23.1 · tinh chỉnh 1 epoch từ checkpoint NLI tương ứng · không dùng dev · kiểm định cặp bằng bootstrap</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">36 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">38 / 51</p>
 <aside>Động lực: NLI bị lừa bởi đáp án mồi và trùng lặp từ vựng vì chưa từng thấy loại bẫy này khi học MNLI. Chúng tôi tạo 60 000 cặp từ SQuAD 2.0 train (reader cũng học từ train, không ai thấy dev) và tinh chỉnh 1 epoch. Kiểm định cặp trên test: (1) cùng kích thước base, tinh chỉnh tốt hơn rõ ở mọi phương pháp (V −6.9, R −2.7, C −1.3). (2) base tinh chỉnh bằng large có sẵn khi kết hợp (C −0.1, p = 0.34), hơn khi chỉ dùng NLI (V −0.8, p = 0.002). (3) Tinh chỉnh large còn tốt hơn nữa: so với large gốc C −1.0, R −1.6, V −2.8; so với base tinh chỉnh C −0.9 — lợi ích của tinh chỉnh và của kích thước cộng dồn. (4) V của large-qa tốt hơn B2 2.5 điểm, vững cả khi bootstrap theo bài [−3.31, −1.60]. (5) Thêm 20k mẫu âm đổi thực thể (qa2) không đổi AURC (C −0.01, p = 0.88; chỉ R hơn 0.35) — slide sau giải thích vì sao.</aside>
 </section>
 <section id="finetune-hans" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -966,7 +986,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">37 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">39 / 51</p>
 <aside>Cùng một setting (template, win3) cho mọi verifier để các nhóm overlap là cùng những câu hỏi: 505 trong 4 469 câu không đáp án có mọi từ của giả thuyết nằm trong premise. Ở mọi verifier, nhóm này vẫn bị chấp nhận nhiều hơn — heuristic trùng lặp từ vựng không biến mất — nhưng tinh chỉnh thu hẹp khoảng cách đi một nửa: 24 → 12 điểm với base, 14 → 7 với large; số câu không đáp án bị chấp nhận mạnh giảm từ 904 (large) xuống 399 (large-qa). Mẫu âm đổi thực thể đẩy nhóm trùng lặp xuống 20%, nhưng mô hình trở nên đa nghi hơn với cả đáp án đúng (trên tập giữ lại, độ chính xác với mẫu dương 88.5% → 81.5%), nên tổng thể AURC không đổi. Bài học: mẫu âm khó cần đi kèm mẫu dương khó tương ứng, nếu không mô hình chỉ dịch ngưỡng.</aside>
 </section>
 <section id="seeds" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
@@ -984,7 +1004,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <p style="flex:1;font-size:28px;line-height:1.4"><b>Nhưng seed đổi tỉ lệ bẫy ~4 điểm</b> → so sánh HANS một seed phải kèm khoảng dao động.</p>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">AURC ×100 trên test 8 945 câu · V: p = 0.004 / 0.09 / 0.002; C: không seed nào có ý nghĩa · bẫy trùng lặp = câu không ĐA, overlap = 1, setting template|win3</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">38 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">40 / 51</p>
 <aside>Hai câu hỏi: kết quả tinh chỉnh có phụ thuộc may rủi của seed không, và mẫu âm–dương khó đi đôi (bài học từ qa2) có giúp không. Mỗi cấu hình huấn luyện 3 seed. (1) AURC rất ổn định: C của base-qa đúng 21.2 cả ba lần. (2) Thêm 10 000 cặp câu gần giống tự nhiên giúp V khoảng 0.25 điểm, cùng hướng ở cả 3 seed, 2/3 có ý nghĩa; nhưng khi kết hợp với reader (C) thì lợi ích biến mất. Đây là kết quả âm thứ hai cùng kiểu qa2: cải thiện NLI đúng ở chỗ reader đã biết. (3) Tỉ lệ chấp nhận bẫy trùng lặp dao động 4 điểm chỉ do seed, và cặp gần giống không làm giảm nó. Con số 20.2% của qa2 vẫn nằm ngoài khoảng dao động nên kết luận cũ về qa2 vẫn đứng.</aside>
 </section>
 <section id="error-breakdown" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
@@ -1005,7 +1025,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">B2 = reader một mình · C = reader + nli-large-qa · ngưỡng chọn trên calib · từ chối câu có ĐA mà top-1 sai không tính là lỗi</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">39 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">41 / 51</p>
 <aside>Phân rã lỗi quyết định ở ngưỡng đã chọn. Tổng số lỗi giảm 37%. Phần giảm lớn nhất là trả lời câu không đáp án (627 → 355) và từ chối nhầm câu có đáp án mà reader đã tìm đúng (472 → 306). Nghĩa là NLI giúp chủ yếu ở việc ra quyết định trả lời hay từ chối, đúng như phân tích dữ liệu dự đoán. Lỗi trả lời sai câu có đáp án giảm ít hơn, và gần một nửa số còn lại là lệch biên span — một phần là vấn đề thước đo.</aside>
 </section>
 <section id="why-results" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:40px">
@@ -1029,7 +1049,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <p style="font-size:24px;line-height:1.4;color:#5a6170">Học từ chính plausible answer: bẫy bị chấp nhận mạnh 904 → 399. Mô hình lớn thêm năng lực nên hai lợi ích cộng dồn.</p>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">40 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">42 / 51</p>
 <aside>Tổng hợp nguyên nhân của từng kết quả. (1) Kết hợp hiệu quả không phải vì NLI giỏi hơn reader mà vì hai bên sai ở những câu khác nhau: ở cùng mức coverage 50% với cùng câu trả lời, chỉ khoảng 40% lỗi là chung. (2) NLI có sẵn kém khi đứng một mình vì xác suất quá tự tin, dựa vào trùng lặp từ vựng, và khác phân phối huấn luyện. (3) Rerank bị giới hạn bởi dữ liệu: rất ít câu có chỗ để sửa, và NLI không phân biệt tốt span đúng với span sai lân cận. (4) Tinh chỉnh trên chính các câu bẫy giải quyết đúng chỗ yếu, và kích thước mô hình bổ sung năng lực nên lợi ích cộng dồn.</aside>
 </section>
 <section id="remaining-errors" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
@@ -1060,7 +1080,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 <p style="font-size:28px;line-height:1.4">→ Phủ định đã được giải quyết; còn lại là câu <b>đổi ý nghĩa mà giữ nguyên từ</b>, câu hỏi kém chất lượng, và <b>nhiễu của nhãn</b>.</p>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">Hệ thống tốt nhất = C với nli-large-qa · loại câu không ĐA gán bằng luật (khớp nhãn tay 54%) · nghi nhãn sai = reader ≥ 0.9 và NLI ≥ 0.95</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">41 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">43 / 51</p>
 <aside>So sánh đặc điểm của các câu mà hệ thống tốt nhất còn làm sai với mức chung. Câu không đáp án bị trả lời: loại "đổi điều kiện, giữ nguyên từ" chiếm tới 62% (mức chung 43%), câu hỏi lỗi và câu trùng lặp từ vựng cũng nhiều hơn; ngược lại phủ định chỉ còn 4% (mức chung 13%) — NLI đã xử lý được. Khoảng 9% bị nghi là nhãn sai. Câu có đáp án bị trả lời sai: gần một nửa là lệch biên span và một phần ba là câu có đáp án gold không thống nhất — chủ yếu là giới hạn của thước đo. Đây là hướng cho bước tiếp theo: sinh mẫu âm "đổi điều kiện" đi kèm mẫu dương khó, và làm sạch nhãn.</aside>
 </section>
 <section id="errors-examples" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -1089,7 +1109,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <p style="font-size:24px;color:#5a6170">Loại ANS</p>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">42 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">44 / 51</p>
 <aside>Ba ví dụ thật từ tập test. (1) Bắt được: câu hỏi hỏi về một tướng Pháp, nhưng người thương lượng với Vaudreuil là tướng Anh Amherst; reader vẫn chọn "General Amherst" với xác suất 0.74, còn NLI cho P_contra 0.97. (2) Bỏ sót: chính ví dụ mở đầu — câu hỏi đổi "indicted" thành "investigated" và thêm "former city"; khác biệt quá tinh vi, cả reader lẫn NLI đều bị lừa. (3) Lỗi nhãn: đoạn văn có đáp án, nên một phần "lỗi" của hệ thống thực ra là lỗi của dữ liệu.</aside>
 </section>
 <section id="ood" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
@@ -1109,7 +1129,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">AURC ×100 · mọi thứ (setting, λ, C, τ) học trên calib SQuAD, áp dụng nguyên xi · NQ, NewsQA: 2 000 câu MRQA · AddSent 2 560 câu · các bộ ngoài miền không có câu không đáp án</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">43 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">45 / 51</p>
 <aside>Theo thiết lập của Kamath và cộng sự 2020: không học gì trên miền mới. Ba bộ: AddSent (SQuAD có chèn một câu gây nhiễu, Jia và Liang 2017), Natural Questions và NewsQA từ MRQA. Reader đúng top-1: 77% trên AddSent, 67% trên NQ và NewsQA, so với 93% trên SQuAD. Kết quả: mọi biến thể NLI đều tốt hơn B2 ở AddSent; trên NQ và NewsQA, R và C tốt hơn có ý nghĩa, V không. Điểm thú vị là thứ hạng đảo ngược: C — tốt nhất trong miền — lại thua V và R, vì bộ phân loại logistic dựa vào xác suất của reader, mà xác suất này mất hiệu chỉnh ngoài miền. Lưu ý: các bộ ngoài miền đều có đáp án, nên ở đây AURC đo việc phát hiện câu trả lời sai, không đo việc nhận ra câu không có đáp án. Với cùng các câu hỏi gốc không có câu nhiễu (addsent_orig), B2 chỉ 3.6 và large-qa 1.7.</aside>
 </section>
 <section id="ood-addsent" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -1133,7 +1153,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">44 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">46 / 51</p>
 <aside>Câu gây nhiễu của AddSent được viết để trùng nhiều từ với câu hỏi nhưng đổi một thực thể — ở đây Cam Newton thành Gwahng Webster. Reader so khớp từ nên chọn Jeff Dean với độ tự tin rất cao. Khi biến thành giả thuyết, câu "Jeff Dean picked off Cam Newton" đòi hỏi đúng thông tin bị đổi, nên NLI cho P(entail) 0.007. Thống kê với nli-large-qa: 72% lỗi reader đến từ câu chèn; NLI bác 88% số lỗi này và giữ 85% đáp án đúng. Ví dụ khác: "Blacklisting occurs when the public doesn't vote the party line" trong khi câu hỏi nói về "a member" — P(entail) 0.015. Đây cũng là loại bẫy ENT của SQuAD 2.0, nên verifier tinh chỉnh trên bẫy SQuAD 2.0 khái quát được sang đây.</aside>
 </section>
 <section id="risk-control" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
@@ -1159,7 +1179,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">δ = 0.1 · LTT với hiệu chỉnh Bonferroni (Angelopoulos và cs., 2021) · 200 lần chia đôi tập test để kiểm tra · rủi ro = P(sai | được trả lời)</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">45 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">47 / 51</p>
 <aside>AURC là trung bình trên mọi mức coverage; người dùng thực tế cần câu trả lời cho câu hỏi: "tôi chỉ chấp nhận sai 10%, hệ thống trả lời được bao nhiêu?". Chọn ngưỡng sao cho rủi ro trên calib ≤ α là không đủ: do nhiễu mẫu, rủi ro thật vượt α ở 36–66% số lần chia. Learn-then-Test kiểm định giả thuyết "rủi ro > α" bằng p-value nhị thức chính xác trên một lưới ngưỡng cố định từ trước, hiệu chỉnh Bonferroni, nên bảo đảm vượt α với xác suất ≤ δ. Với bảo đảm đó, ở α = 10%: B2 chỉ trả lời được 16% câu, C large 34%, C large-qa 42% — gấp 2.6 lần. Ở α = 5% chỉ large-qa còn trả lời được (11%). Giới hạn: bảo đảm dựa trên giả định dữ liệu mới cùng phân phối. Đem ngưỡng sang NQ và NewsQA thì rủi ro thật 14–21%, vượt α. AddSent vẫn giữ được (trừ một ô), vì cùng miền Wikipedia với SQuAD.</aside>
 </section>
 <section id="method-choice" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
@@ -1183,7 +1203,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 </div>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">AURC ×100, thấp hơn là tốt hơn · V, R, C dùng nli-large-qa · mọi tham số học trên calib SQuAD · in đậm: tốt nhất mỗi cột</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">46 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">48 / 51</p>
 <aside>Bảng tổng hợp bốn cách dùng tín hiệu. Trong miền ba phương pháp có NLI tinh chỉnh khá sát nhau, C tốt nhất 20.3. Ngoài miền thứ hạng thay đổi: V tốt nhất trên AddSent vì câu gây nhiễu là đúng loại lỗi NLI bắt được; R tốt nhất trên NQ và NewsQA. Chọn C làm phương pháp chính vì bốn lý do: tốt nhất trong miền và vững với mọi kích thước verifier (V, R với verifier nhỏ còn kém B2); xác suất của C được hiệu chỉnh nên dùng trực tiếp để đặt ngưỡng và áp dụng Learn-then-Test; chỉ cần chạy NLI một lần cho top-1 thay vì năm lần như R; và biến thể phức tạp hơn RC chỉ hơn 0.16 điểm. Điểm yếu của C là các trọng số dựa nhiều vào xác suất reader, học trên SQuAD; khi đổi miền xác suất này lệch nên C thua R. Khuyến nghị: trong miền dùng C; khi triển khai trên dữ liệu khác miền huấn luyện thì dùng R, và cần hiệu chỉnh lại ngưỡng vì bảo đảm rủi ro không còn đúng.</aside>
 </section>
 <section id="challenges" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -1215,7 +1235,7 @@ x-shape[kind=ellipse]{border-radius:50%}
 <p style="font-size:24px;line-height:1.4;color:#5a6170">Bộ tách từ bỏ sót “didn't” → tỉ lệ phủ định bị tính thiếu (10.1% → 13.2%); phát hiện khi viết unit test.</p>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">47 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">49 / 51</p>
 <aside>Những khó khăn thực tế và cách nhóm xử lý. Đáng nhấn mạnh nhất: kết luận về xếp hạng lại đã đảo ngược khi chuyển từ mẫu 2 000 câu sang toàn bộ dev — bài học về cỡ mẫu và về việc báo cáo khoảng tin cậy. Chi phí: 11 873 câu × 5 ứng viên × 2 giả thuyết × 3 cách chia đoạn, mỗi cặp lại có nhiều mảnh premise. Kết quả âm được giữ lại và báo cáo thay vì bỏ đi.</aside>
 </section>
 <section id="conclusion" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
@@ -1250,14 +1270,14 @@ x-shape[kind=ellipse]{border-radius:50%}
 </ul>
 </div>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">48 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">50 / 51</p>
 <aside>Tóm tắt: dữ liệu là nguồn gốc độ khó; NLI có sẵn giúp khi kết hợp với reader; NLI bị lừa bởi trùng lặp từ vựng; dạy verifier bằng chính các câu bẫy giúp một mô hình nhỏ đạt bằng mô hình lớn gấp 2.4 lần, và cộng dồn với kích thước: large tinh chỉnh tốt nhất (C 20.3, −2.8 so với B2; V một mình −2.5). Kết quả giữ qua 3 seed (AURC lệch ≤ 0.1). Ngoài miền NLI còn giúp nhiều hơn, nhưng thứ hạng đảo: V và R thắng C vì C dựa vào xác suất reader đã lệch. Với ngưỡng Learn-then-Test, ở rủi ro ≤ 10% có bảo đảm, large-qa trả lời 42% số câu so với 16% của reader. Hạn chế: các bộ ngoài miền không có câu không đáp án nên chỉ đo phát hiện câu trả lời sai; bảo đảm rủi ro cần dữ liệu cùng phân phối, mất khi sang NQ và NewsQA; nhãn tay chưa có độ đồng thuận; heuristic trùng lặp giảm một nửa nhưng chưa hết, và cặp câu gần giống không làm giảm thêm. Tiêu chí F1 ≥ 0.5 không còn là hạn chế: kết quả còn mạnh hơn với EM và F1 ≥ 0.8. Hướng tiếp: bộ kết hợp thích ứng miền, bảo đảm rủi ro chịu được dịch chuyển phân phối, RAG.</aside>
 </section>
 <section id="qa" data-transition="fade" style="background:#16202c;color:#f3f1ea;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:40px">
 <h2 style="font-size:120px;font-weight:700;line-height:1.05">Hỏi đáp</h2>
 <p style="font-size:36px;line-height:1.4;color:#c9ccd2;width:1400px">Cảm ơn thầy cô và các bạn đã lắng nghe.</p>
 <p style="font-size:28px;line-height:1.4;color:#7fb3f0;width:1500px">Tài liệu chính: Chen, Choi, Durrett (2021) · Kamath, Jia, Liang (2020) · Rajpurkar, Jia, Liang (2018) · Laban et al. (2022) · Zha et al. (2023) · Geifman, El-Yaniv (2017)</p>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#8a94a3">49 / 49</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#8a94a3">51 / 51</p>
 <aside>Câu hỏi có thể gặp và số liệu dự phòng: (1) Vì sao không dùng B1 làm baseline? B2 mạnh hơn B1 2.7 điểm AURC (p &lt; 0.001), so với B2 mới công bằng. (2) Mẫu 2000 câu ban đầu cho kết quả gì? Cùng xu hướng nhưng C chỉ hơn B2 1.0 điểm và R-large ngang B2; bản 11k thay thế. (3) LLM viết lại giả thuyết? Không hơn template. (4) RC so với C? Chỉ −0.16, quá nhỏ. (5) Kappa? Chưa đo — nhãn do nhóm cùng gán. Bảng đầy đủ: runs/squad11k/results/main.md, significance.md, ablation.md.</aside>
 </section>
 </div>
