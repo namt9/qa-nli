@@ -94,7 +94,7 @@ setTimeout(()=>document.getElementById('help').style.opacity=0,4000);
 function shrink(s){
  s.classList.add('on');
  const top=s.getBoundingClientRect().top, sc=s.getBoundingClientRect().height/1080;
- const abs=[...s.children].filter(c=>getComputedStyle(c).position==='absolute'&&c.tagName!=='ASIDE');
+ const abs=[...s.children].filter(c=>getComputedStyle(c).position==='absolute'&&c.tagName!=='ASIDE'&&!c.hasAttribute('data-pgnum'));
  const flow=[...s.querySelectorAll('*')].filter(e=>e.tagName!=='ASIDE'&&!abs.some(a=>a===e||a.contains(e)));
  let limit=1080-72; abs.forEach(a=>{const t=(a.getBoundingClientRect().top-top)/sc; if(t>540) limit=Math.min(limit,t-16);});
  const bottom=()=>Math.max(...flow.map(e=>(e.getBoundingClientRect().bottom-top)/sc));

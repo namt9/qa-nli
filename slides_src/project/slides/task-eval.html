@@ -22,5 +22,6 @@
 <p style="flex:1;font-size:28px;line-height:1.4;color:#f3f1ea"><b>Yêu cầu 1 · xếp hạng:</b> câu sai, nhất là câu không đáp án, phải có s thấp hơn câu đúng → AURC, AUROC</p>
 <p style="flex:1;font-size:28px;line-height:1.4;color:#f3f1ea"><b>Yêu cầu 2 · hiệu chỉnh:</b> s phải gần xác suất đúng để chọn τ theo mức rủi ro cho trước → ECE, Learn-then-Test</p>
 </div>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">6 / 49</p>
 <aside>Cách chấm. Với từng câu có bốn trường hợp. Câu có đáp án mà hệ thống trả lời: đúng nếu F1 giữa câu trả lời và đáp án gold từ 0.5 trở lên (kết quả còn mạnh hơn với EM và F1 ≥ 0.8). Câu không đáp án mà hệ thống trả lời: luôn sai. Từ chối câu không đáp án là đúng; từ chối câu có đáp án thì không bị tính sai nhưng làm giảm coverage. Cả hệ thống: coverage là tỉ lệ câu được trả lời, risk là tỉ lệ sai trong số đó. Quét ngưỡng từ cao xuống thấp ta được đường risk–coverage; AURC là diện tích dưới đường, càng thấp càng tốt và không phụ thuộc việc chọn một ngưỡng cụ thể. Từ đó có hai yêu cầu với điểm s: xếp hạng tốt, đo bằng AURC và AUROC; và hiệu chỉnh tốt, để khi người dùng nói "chỉ chấp nhận sai tối đa 10%" ta chọn được ngưỡng có bảo đảm — đo bằng ECE và Learn-then-Test ở phần sau.</aside>
 </section>
