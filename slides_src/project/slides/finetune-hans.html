@@ -1,0 +1,21 @@
+<section id="finetune-hans" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN II · PHÂN TÍCH</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Tinh chỉnh giảm một nửa lỗi do trùng lặp từ vựng</h2>
+<div style="display:flex;gap:48px;align-items:flex-start">
+<div style="width:980px;height:540px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:16px">
+<img src="/_blob/08402056f5641025f6716617cc40c984" alt="Tỉ lệ câu không đáp án NLI chấp nhận, nhóm overlap bằng 1 so với nhỏ hơn 1: nli-base 50 và 26, nli-base-qa 28 và 16, nli-base-qa2 20 và 12, nli-large 37 và 23, nli-large-qa 18 và 11 phần trăm" style="width:946px;height:506px;object-fit:contain">
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:24px;color:#5a6170">Chênh lệch giữa hai nhóm</p>
+<p style="font-size:56px;font-weight:700;line-height:1.1">24 → 12 điểm</p>
+<p style="font-size:26px;color:#5a6170">base · và 14 → 7 điểm với large</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #eb6834;border-radius:16px;padding:28px">
+<h3 style="font-size:28px;font-weight:600">Mẫu âm “đổi thực thể”: một sự đánh đổi</h3>
+<p style="font-size:24px;line-height:1.4;color:#5a6170">Bẫy trùng lặp bị chấp nhận 28% → <b style="color:#1c2128">20%</b>, nhưng đáp án đúng được chấp nhận 90.7% → <b style="color:#1c2128">87.1%</b> → AURC không đổi (C −0.01, p = 0.88).</p>
+</div>
+</div>
+</div>
+<aside>Cùng một setting (template, win3) cho mọi verifier để các nhóm overlap là cùng những câu hỏi: 505 trong 4 469 câu không đáp án có mọi từ của giả thuyết nằm trong premise. Ở mọi verifier, nhóm này vẫn bị chấp nhận nhiều hơn — heuristic trùng lặp từ vựng không biến mất — nhưng tinh chỉnh thu hẹp khoảng cách đi một nửa: 24 → 12 điểm với base, 14 → 7 với large; số câu không đáp án bị chấp nhận mạnh giảm từ 904 (large) xuống 399 (large-qa). Mẫu âm đổi thực thể đẩy nhóm trùng lặp xuống 20%, nhưng mô hình trở nên đa nghi hơn với cả đáp án đúng (trên tập giữ lại, độ chính xác với mẫu dương 88.5% → 81.5%), nên tổng thể AURC không đổi. Bài học: mẫu âm khó cần đi kèm mẫu dương khó tương ứng, nếu không mô hình chỉ dịch ngưỡng.</aside>
+</section>

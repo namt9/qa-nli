@@ -1,0 +1,43 @@
+<section id="data-to-method" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:40px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN II · PHƯƠNG PHÁP</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Từ dữ liệu đến thiết kế</h2>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;gap:24px;align-items:center">
+<div style="width:760px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:20px 28px">
+<p style="font-size:26px;line-height:1.35">Top-1 đã đúng 93.3%; xếp hạng lại sửa tối đa <b>195 câu</b></p>
+</div>
+<x-shape kind="arrow-right" style="width:56px;height:32px;background:#5a6170"></x-shape>
+<div style="flex:1;background:#e8f0fa;border-radius:16px;padding:20px 28px">
+<p style="font-size:26px;line-height:1.35">Trọng tâm là <b>độ tin cậy</b> để từ chối; xếp hạng lại chỉ là phụ</p>
+</div>
+</div>
+<div style="display:flex;gap:24px;align-items:center">
+<div style="width:760px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:20px 28px">
+<p style="font-size:26px;line-height:1.35">Câu bẫy giống câu thật về bề mặt, chỉ đổi <b>một thực thể, một phủ định</b></p>
+</div>
+<x-shape kind="arrow-right" style="width:56px;height:32px;background:#5a6170"></x-shape>
+<div style="flex:1;background:#e8f0fa;border-radius:16px;padding:20px 28px">
+<p style="font-size:26px;line-height:1.35">Cần kiểm tra <b>ngữ nghĩa</b>: đoạn văn có kéo theo câu trả lời không → NLI</p>
+</div>
+</div>
+<div style="display:flex;gap:24px;align-items:center">
+<div style="width:760px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:20px 28px">
+<p style="font-size:26px;line-height:1.35">Reader đã tự từ chối <b>82%</b> câu không đáp án</p>
+</div>
+<x-shape kind="arrow-right" style="width:56px;height:32px;background:#5a6170"></x-shape>
+<div style="flex:1;background:#e8f0fa;border-radius:16px;padding:20px 28px">
+<p style="font-size:26px;line-height:1.35"><b>Bổ sung</b>, không thay thế reader → kết hợp hai tín hiệu (C)</p>
+</div>
+</div>
+<div style="display:flex;gap:24px;align-items:center">
+<div style="width:760px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:20px 28px">
+<p style="font-size:26px;line-height:1.35">NLI có sẵn chưa từng thấy loại bẫy này (học trên MNLI)</p>
+</div>
+<x-shape kind="arrow-right" style="width:56px;height:32px;background:#5a6170"></x-shape>
+<div style="flex:1;background:#16202c;border-radius:16px;padding:20px 28px">
+<p style="font-size:26px;line-height:1.35;color:#f3f1ea"><b>Tinh chỉnh</b> NLI trên chính các câu bẫy của SQuAD 2.0 train</p>
+</div>
+</div>
+</div>
+<aside>Slide nối giữa phần dữ liệu và phần phương pháp: mỗi phát hiện ở phần I dẫn tới một quyết định thiết kế. (1) Reader hiếm khi chọn sai span ở câu có đáp án — top-1 đúng 93.3%, chỉ 195 câu có đáp án đúng nằm ở hạng 2–5 — nên bài toán thật là quyết định có trả lời hay không; xếp hạng lại (R) chỉ là hướng phụ. (2) Câu không đáp án được viết lại từ một câu thật, giữ gần hết từ ngữ và chỉ đổi một thực thể, thêm phủ định hoặc dùng từ trái nghĩa; đặc trưng bề mặt không phân biệt được. Điều cần là kiểm tra đoạn văn có thực sự kéo theo câu trả lời không — đúng định nghĩa của bài toán NLI. (3) Reader đã có tín hiệu null rất mạnh, tự từ chối được 82% câu không đáp án; vì vậy NLI nên là tín hiệu bổ sung, kết hợp với reader, chứ không thay thế. (4) NLI học trên MNLI chưa từng thấy loại bẫy giữ nguyên từ ngữ này; vì vậy chúng em tinh chỉnh verifier trên các cặp lấy từ SQuAD 2.0 train.</aside>
+</section>

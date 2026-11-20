@@ -1,0 +1,31 @@
+<section id="challenges" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">QUÁ TRÌNH THỰC HIỆN</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Thách thức và bài học</h2>
+<div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:600">Chi phí tính toán</h3>
+<p style="font-size:24px;line-height:1.4;color:#5a6170">~356k cặp mỗi verifier, tinh chỉnh large nhiều giờ trên T4, hết quota giữa chừng → resume theo nhóm, nhiều tài khoản; checkpoint fp16 làm hỏng huấn luyện → ép fp32.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:600">Kết luận đổi theo cỡ mẫu</h3>
+<p style="font-size:24px;line-height:1.4;color:#5a6170">Mẫu 2 000 câu: R ngang B2 (p = 0.75). Toàn bộ 11 873 câu: R tốt hơn (p = 0.002) → không kết luận trên mẫu nhỏ.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:600">Đánh giá công bằng</h3>
+<p style="font-size:24px;line-height:1.4;color:#5a6170">Mọi lựa chọn trên calib; baseline mạnh B2; bootstrap theo bài. Lưới ngưỡng LTT ban đầu phụ thuộc dữ liệu → vi phạm 11–14%, sửa thành lưới cố định.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:600">Kết quả âm</h3>
+<p style="font-size:24px;line-height:1.4;color:#5a6170">Giả thuyết LLM không hơn template; “NLI ưa span dài” bị bác bỏ; mẫu âm đổi thực thể và cặp câu gần giống không đổi AURC của C.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:600">Dữ liệu có nhiễu</h3>
+<p style="font-size:24px;line-height:1.4;color:#5a6170">~3% câu “không đáp án” thực ra có đáp án; phân loại tự động chỉ khớp nhãn tay 54%.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:600">Kiểm tra lại công cụ đo</h3>
+<p style="font-size:24px;line-height:1.4;color:#5a6170">Bộ tách từ bỏ sót “didn't” → tỉ lệ phủ định bị tính thiếu (10.1% → 13.2%); phát hiện khi viết unit test.</p>
+</div>
+</div>
+<aside>Những khó khăn thực tế và cách nhóm xử lý. Đáng nhấn mạnh nhất: kết luận về xếp hạng lại đã đảo ngược khi chuyển từ mẫu 2 000 câu sang toàn bộ dev — bài học về cỡ mẫu và về việc báo cáo khoảng tin cậy. Chi phí: 11 873 câu × 5 ứng viên × 2 giả thuyết × 3 cách chia đoạn, mỗi cặp lại có nhiều mảnh premise. Kết quả âm được giữ lại và báo cáo thay vì bỏ đi.</aside>
+</section>

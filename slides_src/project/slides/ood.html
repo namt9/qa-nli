@@ -1,0 +1,19 @@
+<section id="ood" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN III · NGOÀI MIỀN</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Ra ngoài miền, NLI giúp nhiều hơn và thứ hạng V · R · C đảo ngược</h2>
+<div style="display:flex;gap:48px;align-items:flex-start">
+<div style="width:1040px;height:520px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:16px">
+<img src="/_blob/773cdf7f82022498eea4a14466b492e6" alt="AURC theo bộ dữ liệu. SQuAD: B2 23.1, V 20.6, R 20.7, C 20.3. AddSent: B2 13.8, V 5.9, R 6.6, C 7.7. NQ: B2 22.6, V 21.0, R 16.3, C 18.2. NewsQA: B2 21.6, V 21.9, R 19.5, C 19.8" style="width:1006px;height:486px;object-fit:contain">
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:24px;color:#5a6170">AddSent, V so với B2</p>
+<p style="font-size:72px;font-weight:700;line-height:1.1;color:#1f63b5">13.8 → 5.9</p>
+</div>
+<p style="font-size:26px;line-height:1.4"><b>Trong miền C tốt nhất; ngoài miền V và R thắng C.</b> C học trọng số trên SQuAD và dựa nhiều vào xác suất reader — tín hiệu này lệch khi đổi miền.</p>
+<p style="font-size:26px;line-height:1.4">R — kết quả âm trong miền — tốt nhất trên NQ (16.3) và NewsQA.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">AURC ×100 · mọi thứ (setting, λ, C, τ) học trên calib SQuAD, áp dụng nguyên xi · NQ, NewsQA: 2 000 câu MRQA · AddSent 2 560 câu · các bộ ngoài miền không có câu không đáp án</p>
+<aside>Theo thiết lập của Kamath và cộng sự 2020: không học gì trên miền mới. Ba bộ: AddSent (SQuAD có chèn một câu gây nhiễu, Jia và Liang 2017), Natural Questions và NewsQA từ MRQA. Reader đúng top-1: 77% trên AddSent, 67% trên NQ và NewsQA, so với 93% trên SQuAD. Kết quả: mọi biến thể NLI đều tốt hơn B2 ở AddSent; trên NQ và NewsQA, R và C tốt hơn có ý nghĩa, V không. Điểm thú vị là thứ hạng đảo ngược: C — tốt nhất trong miền — lại thua V và R, vì bộ phân loại logistic dựa vào xác suất của reader, mà xác suất này mất hiệu chỉnh ngoài miền. Lưu ý: các bộ ngoài miền đều có đáp án, nên ở đây AURC đo việc phát hiện câu trả lời sai, không đo việc nhận ra câu không có đáp án. Với cùng các câu hỏi gốc không có câu nhiễu (addsent_orig), B2 chỉ 3.6 và large-qa 1.7.</aside>
+</section>

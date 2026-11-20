@@ -1,0 +1,20 @@
+<section id="error-breakdown" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHÂN TÍCH LỖI SAU KHI CÓ KẾT QUẢ</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Lỗi giảm 37%, chủ yếu ở việc biết khi nào từ chối</h2>
+<div style="display:flex;gap:48px;align-items:flex-start">
+<div style="width:1000px;height:440px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:16px">
+<img src="/_blob/5cc62e85bde7ac7b81b745b845a915a2" alt="Số lỗi theo loại, B2 so với C: trả lời câu không đáp án 627 và 355; lệch biên span 82 và 75; sai hẳn 113 và 79; từ chối câu có đáp án mà top-1 đúng 472 và 306" style="width:966px;height:406px;object-fit:contain">
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:72px;font-weight:700;line-height:1">1 294 → 815</p>
+<p style="font-size:26px;color:#5a6170">lỗi quyết định trên test (−37%)</p>
+</div>
+<p style="font-size:26px;line-height:1.4">Trả lời câu không ĐA: <b>−43%</b></p>
+<p style="font-size:26px;line-height:1.4">Từ chối nhầm câu có ĐA: <b>−35%</b></p>
+<p style="font-size:26px;line-height:1.4">Trả lời sai: −21%, gần một nửa còn lại là lệch biên span</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">B2 = reader một mình · C = reader + nli-large-qa · ngưỡng chọn trên calib · từ chối câu có ĐA mà top-1 sai không tính là lỗi</p>
+<aside>Phân rã lỗi quyết định ở ngưỡng đã chọn. Tổng số lỗi giảm 37%. Phần giảm lớn nhất là trả lời câu không đáp án (627 → 355) và từ chối nhầm câu có đáp án mà reader đã tìm đúng (472 → 306). Nghĩa là NLI giúp chủ yếu ở việc ra quyết định trả lời hay từ chối, đúng như phân tích dữ liệu dự đoán. Lỗi trả lời sai câu có đáp án giảm ít hơn, và gần một nửa số còn lại là lệch biên span — một phần là vấn đề thước đo.</aside>
+</section>

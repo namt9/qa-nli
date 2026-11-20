@@ -1,0 +1,34 @@
+<section id="conclusion" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">KẾT LUẬN</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Dữ liệu quyết định độ khó; NLI là tín hiệu bổ sung</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:40px">
+<h3 style="font-size:32px;font-weight:600">Kết luận</h3>
+<ul style="font-size:28px;line-height:1.45;display:flex;flex-direction:column;gap:12px">
+<li>Câu không đáp án được cài đáp án mồi; reader chọn mồi ở 67% số câu</li>
+<li>Kết hợp NLI với reader: AURC −1.7 so với B2, vững qua 34/35 bài và mọi tiêu chí đúng</li>
+<li>NLI bị lừa khi câu bẫy giữ nguyên từ ngữ (trùng lặp từ vựng)</li>
+<li>Tinh chỉnh trên câu bẫy cộng dồn với kích thước: large tinh chỉnh đạt C −2.8, ổn định qua 3 seed</li>
+<li>Ngoài miền NLI giúp nhiều hơn (AddSent 13.8 → 5.9); rủi ro ≤ 10% có bảo đảm: trả lời 42% thay vì 16%</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:40px">
+<h3 style="font-size:32px;font-weight:600">Hạn chế</h3>
+<ul style="font-size:28px;line-height:1.45;display:flex;flex-direction:column;gap:12px">
+<li>Bộ ngoài miền không có câu không đáp án</li>
+<li>Bảo đảm rủi ro mất khi đổi miền (NQ, NewsQA)</li>
+<li>Nhãn tay 100 câu, chưa đo độ đồng thuận</li>
+<li>Heuristic trùng lặp giảm một nửa nhưng chưa hết</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#16202c;border-radius:16px;padding:40px">
+<h3 style="font-size:32px;font-weight:600;color:#f3f1ea">Tiếp theo</h3>
+<ul style="font-size:28px;line-height:1.45;display:flex;flex-direction:column;gap:12px;color:#f3f1ea">
+<li>Bộ kết hợp C thích ứng miền (hiệu chỉnh lại reader)</li>
+<li>Bảo đảm rủi ro khi dữ liệu dịch chuyển</li>
+<li>RAG trên NQ-open</li>
+</ul>
+</div>
+</div>
+<aside>Tóm tắt: dữ liệu là nguồn gốc độ khó; NLI có sẵn giúp khi kết hợp với reader; NLI bị lừa bởi trùng lặp từ vựng; dạy verifier bằng chính các câu bẫy giúp một mô hình nhỏ đạt bằng mô hình lớn gấp 2.4 lần, và cộng dồn với kích thước: large tinh chỉnh tốt nhất (C 20.3, −2.8 so với B2; V một mình −2.5). Kết quả giữ qua 3 seed (AURC lệch ≤ 0.1). Ngoài miền NLI còn giúp nhiều hơn, nhưng thứ hạng đảo: V và R thắng C vì C dựa vào xác suất reader đã lệch. Với ngưỡng Learn-then-Test, ở rủi ro ≤ 10% có bảo đảm, large-qa trả lời 42% số câu so với 16% của reader. Hạn chế: các bộ ngoài miền không có câu không đáp án nên chỉ đo phát hiện câu trả lời sai; bảo đảm rủi ro cần dữ liệu cùng phân phối, mất khi sang NQ và NewsQA; nhãn tay chưa có độ đồng thuận; heuristic trùng lặp giảm một nửa nhưng chưa hết, và cặp câu gần giống không làm giảm thêm. Tiêu chí F1 ≥ 0.5 không còn là hạn chế: kết quả còn mạnh hơn với EM và F1 ≥ 0.8. Hướng tiếp: bộ kết hợp thích ứng miền, bảo đảm rủi ro chịu được dịch chuyển phân phối, RAG.</aside>
+</section>

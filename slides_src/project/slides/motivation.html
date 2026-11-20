@@ -1,0 +1,32 @@
+<section id="motivation" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">ĐẶT VẤN ĐỀ</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Hệ thống hỏi đáp cần biết khi nào không nên trả lời</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:40px">
+<p style="font-size:48px;font-weight:700;line-height:1;color:#1f63b5">1</p>
+<h3 style="font-size:32px;font-weight:600;line-height:1.3">Đọc hiểu là lõi của nhiều hệ thống</h3>
+<p style="font-size:26px;line-height:1.4;color:#5a6170">Tìm kiếm, trợ lý ảo, RAG: lấy về một đoạn văn rồi để reader trích câu trả lời từ chính đoạn đó.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:40px">
+<p style="font-size:48px;font-weight:700;line-height:1;color:#1f63b5">2</p>
+<h3 style="font-size:32px;font-weight:600;line-height:1.3">Đoạn văn không phải lúc nào cũng có đáp án</h3>
+<p style="font-size:26px;line-height:1.4;color:#5a6170">Truy hồi nhầm đoạn, câu hỏi sai tiền đề, hỏi điều đoạn văn không nhắc tới. Reader trích xuất vẫn luôn chọn ra một span.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:40px">
+<p style="font-size:48px;font-weight:700;line-height:1;color:#b8461a">3</p>
+<h3 style="font-size:32px;font-weight:600;line-height:1.3">Sai mà tự tin thì tệ hơn từ chối</h3>
+<p style="font-size:26px;line-height:1.4;color:#5a6170">Câu trả lời trích nguyên văn từ nguồn nên dễ được tin. Trong y tế, pháp lý, một câu sai đắt hơn một câu “không biết”.</p>
+</div>
+</div>
+<div style="display:flex;gap:32px;background:#16202c;border-radius:16px;padding:36px 48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:56px;font-weight:700;line-height:1;color:#7fb3f0">75% → 36%</p>
+<p style="font-size:24px;line-height:1.4;color:#d4d1c7">F1 trung bình của 16 mô hình đọc hiểu khi chèn một câu gây nhiễu vào đoạn văn (Jia &amp; Liang, 2017)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:56px;font-weight:700;line-height:1;color:#7fb3f0">86% → 66%</p>
+<p style="font-size:24px;line-height:1.4;color:#d4d1c7">F1 của một hệ thống mạnh khi chuyển từ SQuAD 1.1 sang SQuAD 2.0, có thêm câu không đáp án (Rajpurkar và cộng sự, 2018)</p>
+</div>
+</div>
+<aside>Đặt vấn đề trước khi vào ví dụ. Hỏi đáp đọc hiểu (extractive QA) là thành phần lõi của tìm kiếm, trợ lý ảo và các hệ thống RAG: hệ thống lấy về một đoạn văn, reader trích câu trả lời từ đoạn đó. Vấn đề là trong thực tế đoạn văn thường không chứa đáp án: truy hồi nhầm, câu hỏi có tiền đề sai, hoặc hỏi điều không được nhắc tới. Reader trích xuất được huấn luyện để luôn chỉ ra một đoạn con, nên nó vẫn trả lời. Câu trả lời lại trích nguyên văn từ nguồn nên người dùng dễ tin. Hai con số cho thấy mô hình mạnh vẫn dễ vỡ: Jia và Liang 2017 chèn một câu gây nhiễu, F1 trung bình 16 mô hình giảm từ 75% xuống 36%; SQuAD 2.0 thêm câu không đáp án, hệ thống đạt 86% F1 trên SQuAD 1.1 chỉ còn 66%. Vì vậy mục tiêu của đề tài không phải là trả lời đúng nhiều hơn, mà là biết lúc nào nên trả lời.</aside>
+</section>

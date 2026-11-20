@@ -1,0 +1,30 @@
+<section id="edge-examples-eval" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:24px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN I · EDGE CASE · VÍ DỤ</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Khi chính nhãn và công cụ gây khó</h2>
+<div style="display:grid;grid-template-columns:repeat(2, 1fr);gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #9aa0a8;border-radius:16px;padding:24px 28px">
+<h3 style="font-size:28px;font-weight:600">Hai đáp án gold mâu thuẫn</h3>
+<p style="font-size:24px;line-height:1.35"><b>Q:</b> When did building activity occur on St. Kazimierz Church?</p>
+<p style="font-size:24px;line-height:1.35;color:#5a6170">Gold: “1688–1692” và “1677–1683”</p>
+<p style="font-size:24px;line-height:1.35">Hệ thống: “1688–16” <span style="color:#b8461a">✗</span> (span bị cắt dở)</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #9aa0a8;border-radius:16px;padding:24px 28px">
+<h3 style="font-size:28px;font-weight:600">Đáp án gold sai</h3>
+<p style="font-size:24px;line-height:1.35"><b>Q:</b> What territory was ceded to Britain?</p>
+<p style="font-size:24px;line-height:1.35;color:#5a6170">Gold: “territory east of the Mississippi…” và “<b>France</b>”</p>
+<p style="font-size:24px;line-height:1.35">France là bên nhượng đất, không phải vùng đất được nhượng</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #9aa0a8;border-radius:16px;padding:24px 28px">
+<h3 style="font-size:28px;font-weight:600">Đáp án dài, nhiều cách diễn đạt</h3>
+<p style="font-size:24px;line-height:1.35"><b>Q:</b> What was AUSTPAC</p>
+<p style="font-size:24px;line-height:1.35;color:#5a6170">Gold: “an Australian public X.25 network operated by Telstra”</p>
+<p style="font-size:24px;line-height:1.35">Hệ thống: “Australia's first public packet-switched data network” <span style="color:#b8461a">✗</span></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #9aa0a8;border-radius:16px;padding:24px 28px">
+<h3 style="font-size:28px;font-weight:600">Viết tắt làm cắt câu sai (công cụ)</h3>
+<p style="font-size:24px;line-height:1.35">“Frederick W. | Mote” · “the St. | Lawrence” · “ca. | 2 million”</p>
+<p style="font-size:24px;line-height:1.35;color:#5a6170">Bộ tách câu cắt sau dấu chấm viết tắt → premise theo câu bị thiếu đáp án</p>
+</div>
+</div>
+<aside>Những edge case không nằm ở mô hình mà ở nhãn và công cụ. (1) Hai đáp án gold mâu thuẫn về năm xây nhà thờ, và hệ thống còn trả về span bị cắt dở "1688–16". (2) Gold chứa đáp án sai: "France" không phải là vùng đất được nhượng. (3) Câu hỏi thiếu dấu chấm hỏi, đáp án dài: hệ thống trả lời một mô tả cũng đúng nhưng khác chữ nên bị chấm sai. (4) Hạn chế của chính công cụ của nhóm: bộ tách câu cắt sau các từ viết tắt (W., St., ca.), nên khi chia đoạn theo câu, premise có thể thiếu đáp án; phần lớn 34 câu "đáp án vắt qua hai câu" là do lỗi này. Cần sửa bộ tách câu trong bước tiếp theo.</aside>
+</section>

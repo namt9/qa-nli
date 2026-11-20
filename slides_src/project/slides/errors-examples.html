@@ -1,0 +1,28 @@
+<section id="errors-examples" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN II · PHÂN TÍCH LỖI</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Ba trường hợp điển hình</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #2a78d6;border-radius:16px;padding:40px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">BẮT ĐƯỢC</p>
+<p style="font-size:28px;line-height:1.4"><b>Q:</b> What <b>French</b> General negotiated at Montreal?</p>
+<p style="font-size:28px;line-height:1.4"><b>Đoạn văn:</b> Governor Vaudreuil negotiated … with <b>General Amherst</b> (tướng Anh).</p>
+<p style="font-size:28px;line-height:1.4">Reader: “General Amherst” (0.74). NLI <b>bác bỏ</b>: P_entail 0.02, P_contra 0.97.</p>
+<p style="font-size:24px;color:#5a6170">Loại ENT</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #b8461a;border-radius:16px;padding:40px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#b8461a">BỎ SÓT</p>
+<p style="font-size:28px;line-height:1.4"><b>Q:</b> How many <b>former city officials</b> were investigated by the grand jury?</p>
+<p style="font-size:28px;line-height:1.4"><b>Đoạn văn:</b> … <b>11 officials were indicted</b> …</p>
+<p style="font-size:28px;line-height:1.4">Reader “11” (0.96), NLI cũng chấp nhận: P_entail 0.99 → trả lời <b>sai</b>.</p>
+<p style="font-size:24px;color:#5a6170">Điều kiện bị đổi tinh vi</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #5a6170;border-radius:16px;padding:40px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#5a6170">LỖI NHÃN</p>
+<p style="font-size:28px;line-height:1.4"><b>Q:</b> What type of reaction produces oxygen in plane cabins?</p>
+<p style="font-size:28px;line-height:1.4"><b>Đoạn văn:</b> … produced by the <b>exothermic reaction</b>.</p>
+<p style="font-size:28px;line-height:1.4">Hệ thống trả lời đúng nhưng nhãn là “không đáp án” → bị tính <b>sai</b>.</p>
+<p style="font-size:24px;color:#5a6170">Loại ANS</p>
+</div>
+</div>
+<aside>Ba ví dụ thật từ tập test. (1) Bắt được: câu hỏi hỏi về một tướng Pháp, nhưng người thương lượng với Vaudreuil là tướng Anh Amherst; reader vẫn chọn "General Amherst" với xác suất 0.74, còn NLI cho P_contra 0.97. (2) Bỏ sót: chính ví dụ mở đầu — câu hỏi đổi "indicted" thành "investigated" và thêm "former city"; khác biệt quá tinh vi, cả reader lẫn NLI đều bị lừa. (3) Lỗi nhãn: đoạn văn có đáp án, nên một phần "lỗi" của hệ thống thực ra là lỗi của dữ liệu.</aside>
+</section>

@@ -1,0 +1,31 @@
+<section id="edge-examples-unans" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:24px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN I · EDGE CASE · VÍ DỤ</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Câu không đáp án: bốn kiểu bẫy</h2>
+<div style="display:grid;grid-template-columns:repeat(2, 1fr);gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #eb6834;border-radius:16px;padding:24px 28px">
+<h3 style="font-size:28px;font-weight:600">Cặp gần giống: Iroquois → Sioux</h3>
+<p style="font-size:24px;line-height:1.35"><b>Q:</b> What title did <b>Sioux</b> give Johnson?</p>
+<p style="font-size:24px;line-height:1.35;color:#5a6170">“…Johnson was known to the <b>Iroquois</b> as Warraghiggey…”</p>
+<p style="font-size:24px;line-height:1.35">B2: “Warraghiggey” <span style="color:#b8461a">✗</span> · C: từ chối <span style="color:#1f63b5">✓</span></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #eb6834;border-radius:16px;padding:24px 28px">
+<h3 style="font-size:28px;font-weight:600">Mọi từ có trong đoạn, chỉ đảo vai</h3>
+<p style="font-size:24px;line-height:1.35"><b>Q:</b> What town surrounds Jacksonville?</p>
+<p style="font-size:24px;line-height:1.35;color:#5a6170">“Jacksonville surrounds the town of Baldwin.”</p>
+<p style="font-size:24px;line-height:1.35">B2: “Baldwin” <span style="color:#b8461a">✗</span> · C: từ chối <span style="color:#1f63b5">✓</span></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #eb6834;border-radius:16px;padding:24px 28px">
+<h3 style="font-size:28px;font-weight:600">Thêm phủ định</h3>
+<p style="font-size:24px;line-height:1.35"><b>Q:</b> Which khanates had <b>not</b> converted to Islam?</p>
+<p style="font-size:24px;line-height:1.35;color:#5a6170">“…unlike the western khanates, the Yuan dynasty never converted to Islam.”</p>
+<p style="font-size:24px;line-height:1.35">B2: “western” <span style="color:#b8461a">✗</span> · C: từ chối <span style="color:#1f63b5">✓</span></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #eb6834;border-radius:16px;padding:24px 28px">
+<h3 style="font-size:28px;font-weight:600">Câu hỏi quá ngắn, khác một ký tự</h3>
+<p style="font-size:24px;line-height:1.35"><b>Q:</b> What is <b>CO</b>?</p>
+<p style="font-size:24px;line-height:1.35;color:#5a6170">“…in the form of carbon dioxide (<b>CO2</b>).”</p>
+<p style="font-size:24px;line-height:1.35">B2 và C: “carbon dioxide” <span style="color:#b8461a">✗</span> (CO là carbon monoxide)</p>
+</div>
+</div>
+<aside>Bốn ví dụ thật từ tập test, mỗi ví dụ một edge case của câu không đáp án. (1) Cặp gần giống: cùng đoạn có câu "What title did Iroquois give Johnson?" có đáp án; đổi Iroquois thành Sioux là thành câu không đáp án, reader vẫn trả lời. (2) Mọi từ có trong đoạn nhưng đảo vai: Jacksonville bao quanh Baldwin chứ không ngược lại. (3) Thêm phủ định. (4) Câu hỏi quá ngắn: CO (carbon monoxide) khác CO2 (carbon dioxide) một ký tự — cả reader lẫn NLI đều không nhận ra. C xử lý đúng ba ví dụ đầu.</aside>
+</section>

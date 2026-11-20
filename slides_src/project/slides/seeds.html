@@ -1,0 +1,17 @@
+<section id="seeds" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN II · THÍ NGHIỆM MỚI</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Ba seed: kết quả ổn định, cặp câu gần giống chỉ giúp NLI đứng một mình</h2>
+<p style="font-size:28px;line-height:1.4;color:#5a6170">qa3 = qa + 10k cặp câu hỏi tự nhiên trong train: cùng đoạn văn, trùng ≥ 60% từ, một câu có đáp án, một câu không — luôn thêm cả hai nửa.</p>
+<table style="width:1664px;font-size:26px">
+<tr><th style="text-align:left;padding:10px 18px;border-bottom:2px solid #1c2128">Verifier</th><th style="text-align:right;padding:10px 18px;border-bottom:2px solid #1c2128">V ↓ (seed 42 / 14 / 15)</th><th style="text-align:right;padding:10px 18px;border-bottom:2px solid #1c2128">C ↓ (seed 42 / 14 / 15)</th><th style="text-align:right;padding:10px 18px;border-bottom:2px solid #1c2128">Chấp nhận bẫy trùng lặp</th></tr>
+<tr><td style="padding:10px 18px;border-bottom:1px solid #e2e0d8">nli-base-qa</td><td style="text-align:right;padding:10px 18px;border-bottom:1px solid #e2e0d8">22.6 / 22.5 / 22.5</td><td style="text-align:right;padding:10px 18px;border-bottom:1px solid #e2e0d8">21.2 / 21.2 / 21.2</td><td style="text-align:right;padding:10px 18px;border-bottom:1px solid #e2e0d8">23.8 – 27.9%</td></tr>
+<tr><td style="padding:10px 18px;border-bottom:1px solid #e2e0d8">nli-base-qa3</td><td style="text-align:right;padding:10px 18px;border-bottom:1px solid #e2e0d8">22.3 / 22.4 / 22.2</td><td style="text-align:right;padding:10px 18px;border-bottom:1px solid #e2e0d8">21.1 / 21.2 / 21.1</td><td style="text-align:right;padding:10px 18px;border-bottom:1px solid #e2e0d8">25.5 – 28.9%</td></tr>
+<tr><td style="padding:10px 18px;background:#e8f0fa"><b>qa3 − qa (kiểm định cặp)</b></td><td style="text-align:right;padding:10px 18px;background:#e8f0fa"><b>−0.27 / −0.15 / −0.37</b></td><td style="text-align:right;padding:10px 18px;background:#e8f0fa">−0.10 / −0.03 / −0.10</td><td style="text-align:right;padding:10px 18px;background:#e8f0fa">không giảm</td></tr>
+</table>
+<div style="display:flex;gap:32px">
+<p style="flex:1;font-size:28px;line-height:1.4"><b>Seed gần như không đổi AURC</b> (lệch ≤ 0.1) → các chênh lệch 1–3 điểm ở slide trước là thật.</p>
+<p style="flex:1;font-size:28px;line-height:1.4"><b>Nhưng seed đổi tỉ lệ bẫy ~4 điểm</b> → so sánh HANS một seed phải kèm khoảng dao động.</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">AURC ×100 trên test 8 945 câu · V: p = 0.004 / 0.09 / 0.002; C: không seed nào có ý nghĩa · bẫy trùng lặp = câu không ĐA, overlap = 1, setting template|win3</p>
+<aside>Hai câu hỏi: kết quả tinh chỉnh có phụ thuộc may rủi của seed không, và mẫu âm–dương khó đi đôi (bài học từ qa2) có giúp không. Mỗi cấu hình huấn luyện 3 seed. (1) AURC rất ổn định: C của base-qa đúng 21.2 cả ba lần. (2) Thêm 10 000 cặp câu gần giống tự nhiên giúp V khoảng 0.25 điểm, cùng hướng ở cả 3 seed, 2/3 có ý nghĩa; nhưng khi kết hợp với reader (C) thì lợi ích biến mất. Đây là kết quả âm thứ hai cùng kiểu qa2: cải thiện NLI đúng ở chỗ reader đã biết. (3) Tỉ lệ chấp nhận bẫy trùng lặp dao động 4 điểm chỉ do seed, và cặp gần giống không làm giảm nó. Con số 20.2% của qa2 vẫn nằm ngoài khoảng dao động nên kết luận cũ về qa2 vẫn đứng.</aside>
+</section>

@@ -6,8 +6,15 @@
 đoạn văn (premise) có *kéo theo* câu trả lời (hypothesis) hay không, để:
 
 1. **Biết từ chối:** nếu đoạn văn không kéo theo câu trả lời thì không trả lời (selective QA).
-2. **Chọn lại câu trả lời** *(phương pháp đề xuất)*: reader trả về top-k ứng viên, NLI chấm từng ứng viên,
-   chọn ứng viên có điểm `λ·P_reader + (1−λ)·P_entail` cao nhất.
+   **Phương pháp chính là C**: hồi quy logistic kết hợp tín hiệu của reader với P_entail, P_contra của NLI.
+2. **Chọn lại câu trả lời:** reader trả về top-k ứng viên, NLI chấm từng ứng viên,
+   chọn ứng viên có điểm `λ·P_reader + (1−λ)·P_entail` cao nhất (R; tốt hơn C khi đổi miền).
+3. **Tinh chỉnh verifier** trên các câu bẫy của SQuAD 2.0 train (nli-base-qa, nli-large-qa), và chọn ngưỡng
+   có bảo đảm rủi ro bằng Learn-then-Test.
+
+**Kết quả chính** (AURC ×100 trên test 8 945 câu, thấp hơn là tốt hơn): B2 23.1 → C với nli-large-qa 20.3;
+ổn định qua 3 seed. Ngoài miền (AddSent) NLI giúp nhiều hơn: 13.8 → 5.9. Với rủi ro ≤ 10% có bảo đảm,
+C trả lời 42% số câu so với 16% của reader.
 
 ## Câu hỏi nghiên cứu
 
@@ -16,6 +23,8 @@
   ảnh hưởng thế nào?
 - **RQ3:** Xếp hạng lại top-k bằng NLI có sửa được câu trả lời sai của reader không? Kết hợp
   reader và NLI (λ, hồi quy logistic) có tốt hơn từng tín hiệu riêng lẻ không?
+- **Mở rộng sau khi chốt số liệu:** tinh chỉnh verifier trên câu bẫy (3 seed), đánh giá ngoài miền (AddSent,
+  Natural Questions, NewsQA), ngưỡng có bảo đảm rủi ro (Learn-then-Test).
 
 ## Pipeline
 
@@ -34,8 +43,8 @@ SQuAD 2.0 dev ──► Reader (roberta-base-squad2) ──► top-k ứng viên
 | B1 | reader-prob | softmax của span tốt nhất (có tính null) |
 | B2 | reader-margin | logit span − logit null |
 | V | NLI verify | P(entail) của span tốt nhất |
-| **R** | **NLI rerank (đề xuất)** | chọn lại trong top-k theo `λ·P_reader + (1−λ)·P_entail` |
-| C | combo | hồi quy logistic trên [P_reader, margin, P_entail, P_contra] |
+| R | NLI rerank | chọn lại trong top-k theo `λ·P_reader + (1−λ)·P_entail` |
+| **C** | **combo (phương pháp chính)** | hồi quy logistic trên [P_reader, margin, P_entail, P_contra] |
 | RC | rerank + combo | chọn câu trả lời như R, độ tự tin bằng hồi quy logistic trên [P_reader, margin, P_entail, P_contra] của ứng viên được chọn, P_entail của top-1 và null prob |
 
 Đánh giá: **AURC** (diện tích dưới đường risk–coverage, thấp hơn là tốt hơn), AUROC, độ chính xác ở mức
@@ -56,7 +65,8 @@ qaverify/
   metrics.py      EM/F1, risk-coverage, AURC, AUROC, bootstrap   (cả hai)
 scripts/
   run_reader.py   bước 1: tạo runs/<run>/preds.jsonl (--dataset squad_v2_dev | addsent | addsent_orig | mrqa:<Tên>)
-  finetune_verifier.py  bước 2b: tinh chỉnh nli-base trên cặp QA→NLI từ SQuAD 2.0 train -> runs/models/nli-base-qa
+  finetune_verifier.py  bước 2b: tinh chỉnh verifier trên 60k cặp QA→NLI từ SQuAD 2.0 train -> runs/models/nli-base-qa,
+                    nli-large-qa (--base nli-large); biến thể qa2 (--n_swap), qa3 (--n_pairs), seed khác (--seed)
   run_verify.py   bước 2: tạo runs/<run>/scores/<verifier>.jsonl (mỗi verifier một file, chạy song song được)
   analyze.py      bước 3: gộp kết quả, tạo runs/<run>/results/{main.md, ablation.md, significance.md, all.csv, risk_coverage.png, aurc_vs_size.png, settings.json}
   find_examples.py  bước 4: chọn ví dụ cho slide (sửa đúng, làm sai, bắt được, bỏ sót) -> results/examples.md
@@ -71,12 +81,15 @@ scripts/
                     sai ở câu khác nhau, ví dụ lỗi tự tin nhất -> results/error_analysis.md
   ood_eval.py       bước 11: đánh giá ngoài miền (AddSent, Natural Questions, NewsQA): học τ, λ, C trên calib SQuAD,
                     áp dụng nguyên xi -> <source>/results/ood_eval.md
+  ood_examples.py   bước 11b: lỗi của reader trên AddSent đến từ câu gây nhiễu, và NLI loại được bao nhiêu -> results/ood_examples.md
   risk_control.py   bước 12: chọn ngưỡng có bảo đảm rủi ro ≤ α (Learn-then-Test, kiểm định nhị thức), kiểm tra tính hợp lệ
                     bằng 200 lần chia đôi, và thử bảo đảm đó ngoài miền -> results/risk_control.md
   make_annotation.py     bước 6a: tạo bộ gán nhãn loại câu không đáp án (Rajpurkar 2018): --mode random (sheet_*), check (kappa), errors (câu C trả lời sai)
   analyze_annotation.py  bước 6b: độ đồng thuận (kappa) và hành vi reader/NLI theo từng loại -> annotation/<set>_annotation.md
 run_pipeline.ipynb  notebook Colab chạy toàn bộ
 tests/            pytest
+slides_src/       mã nguồn slide seminar: project/deck.json (thứ tự), project/slides/*.html, blobs.json (hình -> PNG trong runs/)
+  build_html_deck.py  ghép thành slides_seminar.html (một file, nhúng sẵn hình) và --pdf ra slides_seminar.pdf
 ```
 
 ## Chạy trên Colab (GPU T4)
@@ -110,14 +123,14 @@ Chạy thử nhanh trên CPU: `--n 200` ở bước 1, `--limit 50` ở bước 
 
 | | A: phía QA | B: phía NLI |
 |---|---|---|
-| Code | `reader.py`, `hypothesis.py` (+ LLM), sau seminar thêm retriever cho RAG | `verifier.py`, `methods.py`, sau seminar tinh chỉnh QA→NLI |
-| Câu hỏi nghiên cứu | RQ1, phần RAG | RQ2, RQ3 |
+| Code | `reader.py`, `hypothesis.py` (+ LLM), đánh giá ngoài miền | `verifier.py`, `methods.py`, tinh chỉnh QA→NLI |
+| Câu hỏi nghiên cứu | RQ1, ngoài miền | RQ2, RQ3, tinh chỉnh |
 | Cùng làm | `metrics.py`, `analyze.py`, phân tích lỗi, slide, báo cáo | |
 
 Giao ước dữ liệu: `preds.jsonl` (do A tạo) có `id, question, context, answers, split, candidates[{text, prob, logit}],
 null_logit, null_prob, hyp{concat, template, llm?}`. B đọc file này và tạo `scores/<verifier>.jsonl` gồm `{id, nli: {"verifier|hyp|chunk": [[ent, con] cho từng ứng viên]}}`.
 
-## Lịch (seminar 7/11, nếu dời sang 14/11 thì có thêm 1 tuần)
+## Lịch (seminar dời từ 7/11 sang **21/11**)
 
 | Ngày | A | B | Cùng làm |
 |---|---|---|---|
@@ -127,8 +140,11 @@ null_logit, null_prob, hyp{concat, template, llm?}`. B đọc file này và tạ
 | 31/10–1/11 | Xem lỗi template và LLM | Xem λ, combo | **Chốt số liệu seminar** |
 | 2–3/11 | Slide: bài toán, pipeline | Slide: công trình liên quan, kết quả | Chọn 3 ví dụ lỗi |
 | 4–6/11 | | | Tập 2 lần, chuẩn bị câu hỏi |
-| **7/11** | | | **Seminar** |
-| Sau seminar | RAG trên NQ-open (BM25 + dense, LLM reader) | Tinh chỉnh verifier trên dữ liệu QA→NLI từ SQuAD train | Phân tích lỗi, demo, báo cáo |
+| 7–12/11 | Đánh giá ngoài miền: AddSent, NQ, NewsQA | Tinh chỉnh nli-base-qa, qa2, qa3, nli-large-qa; 3 seed | Phân tích lỗi, Learn-then-Test |
+| 13–20/11 | | | Cập nhật slide (49 slide, bản HTML/PDF), tập, chuẩn bị câu hỏi |
+| **21/11** | | | **Seminar** |
+| Sau seminar | | | Demo, báo cáo |
+| Hướng phát triển | RAG trên NQ-open (BM25 + dense, LLM reader) | Bộ kết hợp C thích ứng miền, bảo đảm rủi ro khi dữ liệu dịch chuyển | |
 
 ## Tài liệu tham khảo chính
 
@@ -138,3 +154,6 @@ null_logit, null_prob, hyp{concat, template, llm?}`. B đọc file này và tạ
 - Zha et al. (2023). *AlignScore: Evaluating Factual Consistency with a Unified Alignment Function.* ACL.
 - Rajpurkar, Jia, Liang (2018). *Know What You Don't Know: Unanswerable Questions for SQuAD.* ACL.
 - Geifman, El-Yaniv (2017). *Selective Classification for Deep Neural Networks.* NeurIPS.
+- Jia, Liang (2017). *Adversarial Examples for Evaluating Reading Comprehension Systems.* EMNLP.
+- McCoy, Pavlick, Linzen (2019). *Right for the Wrong Reasons: Diagnosing Syntactic Heuristics in Natural Language Inference.* ACL.
+- Angelopoulos, Bates, Candès, Jordan, Lei (2021). *Learn then Test: Calibrating Predictive Algorithms to Achieve Risk Control.* arXiv:2110.01052.

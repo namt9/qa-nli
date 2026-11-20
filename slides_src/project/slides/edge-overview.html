@@ -1,0 +1,21 @@
+<section id="edge-overview" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:32px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN I · EDGE CASE</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Edge case nào làm hệ thống sai nhiều hơn?</h2>
+<div style="display:flex;gap:48px;align-items:flex-start">
+<div style="width:700px;height:640px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:16px">
+<img src="/_blob/e2e8514db8d9052496d882f2e3d518ce" alt="Tỉ lệ quyết định sai tăng thêm so với mức chung cho từng edge case, B2 và C: phủ định có đáp án và đáp án gold không thống nhất tăng nhiều nhất; phủ định không đáp án và đáp án vắt qua hai câu giảm" style="width:666px;height:606px;object-fit:contain">
+</div>
+<table style="flex:1;font-size:24px">
+<tr><th style="text-align:left;padding:10px 12px;border-bottom:2px solid #1c2128">Edge case</th><th style="text-align:right;padding:10px 12px;border-bottom:2px solid #1c2128">% nhóm</th><th style="text-align:right;padding:10px 12px;border-bottom:2px solid #1c2128">B2 sai thêm</th></tr>
+<tr><td style="padding:10px 12px;border-bottom:1px solid #e2e0d8">Câu hỏi phủ định, có ĐA</td><td style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e0d8">2.8</td><td style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e0d8"><b>+13.1</b></td></tr>
+<tr><td style="padding:10px 12px;border-bottom:1px solid #e2e0d8">Đáp án gold không thống nhất</td><td style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e0d8">19.7</td><td style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e0d8"><b>+9.7</b></td></tr>
+<tr><td style="padding:10px 12px;border-bottom:1px solid #e2e0d8">Câu hỏi lỗi, thiếu từ để hỏi</td><td style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e0d8">2.7</td><td style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e0d8">+7.8</td></tr>
+<tr><td style="padding:10px 12px;border-bottom:1px solid #e2e0d8">Không đổi được thành câu khẳng định</td><td style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e0d8">9.9</td><td style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e0d8">+4.4</td></tr>
+<tr><td style="padding:10px 12px;border-bottom:1px solid #e2e0d8">Mọi từ của câu hỏi có trong đoạn</td><td style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e0d8">13.3</td><td style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e0d8">+4.2</td></tr>
+<tr><td style="padding:10px 12px;border-bottom:1px solid #e2e0d8">Đáp án lặp lại trong đoạn</td><td style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e0d8">12.1</td><td style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e0d8">+3.7</td></tr>
+<tr><td style="padding:10px 12px;border-bottom:1px solid #e2e0d8">Cặp gần giống, nhãn ngược</td><td style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e0d8">28.3</td><td style="text-align:right;padding:10px 12px;border-bottom:1px solid #e2e0d8">+2.2</td></tr>
+<tr><td style="padding:10px 12px">Câu hỏi phủ định, không ĐA</td><td style="text-align:right;padding:10px 12px">13.1</td><td style="text-align:right;padding:10px 12px;color:#1f63b5"><b>−10.9</b></td></tr>
+</table>
+</div>
+<aside>Mỗi edge case được phát hiện tự động (11 loại, xem scripts/edge_cases.py) và đếm trên 8 945 câu test. "Sai thêm" = tỉ lệ quyết định sai trên nhóm đó trừ đi mức chung của các câu cùng loại (có đáp án: B2 sai 17.3%; không đáp án: 14.0%). Thanh xám là reader một mình (B2), thanh xanh là C với verifier tinh chỉnh. Hai edge case gây hại nhiều nhất: câu phủ định có đáp án và đáp án gold không thống nhất — hai slide sau đi sâu. Ngược lại câu phủ định không đáp án lại DỄ hơn mức chung, dấu hiệu của một lối tắt.</aside>
+</section>

@@ -1,0 +1,40 @@
+<section id="rerank" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:32px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN II · KẾT QUẢ · RQ3</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Xếp hạng lại chỉ có ích khi verifier đủ mạnh</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:32px 40px">
+<p style="font-size:24px;color:#5a6170">R so với B2 · nli-xs</p>
+<p style="font-size:88px;font-weight:700;line-height:1;color:#b8461a">+1.6</p>
+<p style="font-size:24px;color:#5a6170">kém hơn, p &lt; 0.001</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:32px 40px">
+<p style="font-size:24px;color:#5a6170">R so với B2 · nli-base</p>
+<p style="font-size:88px;font-weight:700;line-height:1;color:#b8461a">+1.7</p>
+<p style="font-size:24px;color:#5a6170">kém hơn, p &lt; 0.001</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:32px 40px">
+<p style="font-size:24px;color:#5a6170">R so với B2 · nli-large</p>
+<p style="font-size:88px;font-weight:700;line-height:1;color:#1f63b5">−0.8</p>
+<p style="font-size:24px;color:#5a6170">tốt hơn, p = 0.002</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#16202c;border-radius:16px;padding:32px 40px">
+<p style="font-size:24px;color:#c9ccd2">nli-large: sửa / làm sai</p>
+<p style="font-size:64px;font-weight:700;line-height:1.375;color:#f3f1ea">44 / 24</p>
+<p style="font-size:24px;color:#c9ccd2">trên trần 195 câu</p>
+</div>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:32px 40px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">SỬA ĐÚNG</p>
+<p style="font-size:28px;line-height:1.4">In Nepalese private schools, what is the primary language of instruction?</p>
+<p style="font-size:28px;line-height:1.4">Reader: <span style="color:#b8461a">Nepali</span> → R: <b style="color:#1f63b5">English</b></p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:32px 40px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#b8461a">LÀM SAI</p>
+<p style="font-size:28px;line-height:1.4">…what type of short-lived immunity? <span style="color:#5a6170">(gold: passive immunity)</span></p>
+<p style="font-size:28px;line-height:1.4">R chọn span quá dài: “passive immunity because the fetus does not actually make…”</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">Chọn lại rồi kết hợp (RC) chỉ hơn C 0.16 điểm AURC → giữ C làm phương pháp chính · ΔAURC ×100, paired bootstrap</p>
+<aside>R chọn lại câu trả lời trong top-5 theo λ·P_reader + (1−λ)·P_entail. Với verifier nhỏ, R làm kém hơn B2; chỉ với nli-large R mới tốt hơn có ý nghĩa. R-large sửa đúng 44 câu và làm sai 24 câu, trong khi trần là 195 câu. Ví dụ sửa đúng: reader chọn "Nepali" vì câu có nhắc tới, NLI nhận ra đoạn văn nói "The medium of education is English". Ví dụ làm sai: span dài vẫn được NLI chấp nhận nhưng F1 với gold thấp. Trên toàn bộ dữ liệu, độ dài ứng viên gần như không tương quan với P_entail (−0.01), nên đây là lỗi ở phần đuôi chứ không phải xu hướng chung.</aside>
+</section>

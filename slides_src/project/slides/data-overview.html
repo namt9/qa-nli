@@ -1,0 +1,29 @@
+<section id="data-overview" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN I · DỮ LIỆU</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">SQuAD 2.0 dev: một nửa câu hỏi không có đáp án</h2>
+<div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:40px">
+<p style="font-size:96px;font-weight:700;line-height:1">11 873</p>
+<p style="font-size:28px;color:#5a6170">câu hỏi</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:40px">
+<p style="font-size:96px;font-weight:700;line-height:1;color:#b8461a">50.1%</p>
+<p style="font-size:28px;color:#5a6170">không có đáp án</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:40px">
+<p style="font-size:96px;font-weight:700;line-height:1">35</p>
+<p style="font-size:28px;color:#5a6170">bài Wikipedia</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:40px">
+<p style="font-size:96px;font-weight:700;line-height:1">1 204</p>
+<p style="font-size:28px;color:#5a6170">đoạn văn</p>
+</div>
+</div>
+<table style="font-size:28px;width:1664px">
+<tr><th style="text-align:left;padding:16px 24px;border-bottom:2px solid #1c2128">Tập</th><th style="text-align:right;padding:16px 24px;border-bottom:2px solid #1c2128">Số câu</th><th style="text-align:right;padding:16px 24px;border-bottom:2px solid #1c2128">% không đáp án</th><th style="text-align:left;padding:16px 24px;border-bottom:2px solid #1c2128">Dùng để</th></tr>
+<tr><td style="padding:16px 24px;border-bottom:1px solid #e2e0d8">calib (25%)</td><td style="text-align:right;padding:16px 24px;border-bottom:1px solid #e2e0d8">2 928</td><td style="text-align:right;padding:16px 24px;border-bottom:1px solid #e2e0d8">50.4</td><td style="padding:16px 24px;border-bottom:1px solid #e2e0d8">chọn setting, λ, ngưỡng τ, huấn luyện combo</td></tr>
+<tr><td style="padding:16px 24px">test (75%)</td><td style="text-align:right;padding:16px 24px">8 945</td><td style="text-align:right;padding:16px 24px">50.0</td><td style="padding:16px 24px">chỉ để báo cáo</td></tr>
+</table>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">Chia cố định bằng hash của id câu hỏi · Rajpurkar, Jia, Liang (2018)</p>
+<aside>SQuAD 2.0 bổ sung các câu không đáp án do người viết, dựa trên cùng đoạn văn của SQuAD 1.1. Chúng tôi dùng toàn bộ dev 11 873 câu. Tập calib và test được chia cố định bằng hash id, cân bằng tỉ lệ không đáp án. Mọi lựa chọn (setting, λ, ngưỡng) đều làm trên calib, test chỉ để báo cáo.</aside>
+</section>

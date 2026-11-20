@@ -1,0 +1,32 @@
+<section id="robust" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN II · KẾT QUẢ</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Kết quả có vững không?</h2>
+<div style="display:flex;gap:56px;align-items:flex-start">
+<div style="width:900px;height:560px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:16px">
+<img src="/_blob/c8f9f6fe510bd4d229490ecf962390a2" alt="Mức giảm AURC của C so với B2 trên từng bài trong 35 bài Wikipedia; chỉ một bài âm rất nhỏ" style="width:866px;height:526px;object-fit:contain">
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:24px;color:#5a6170">Nhất quán qua các bài</p>
+<p style="font-size:56px;font-weight:700;line-height:1.1;color:#1f63b5">34 / 35 bài</p>
+<p style="font-size:26px;color:#5a6170">C tốt hơn B2 · sign test p &lt; 0.0001</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:24px;color:#5a6170">Bootstrap theo bài (không theo câu)</p>
+<p style="font-size:56px;font-weight:700;line-height:1.1">[−2.06, −1.38]</p>
+<p style="font-size:26px;color:#5a6170">95% CI của C − B2, vẫn xa 0</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:24px;color:#5a6170">Tiêu chí đúng chặt hơn</p>
+<p style="font-size:56px;font-weight:700;line-height:1.1">−2.9 / −2.2</p>
+<p style="font-size:26px;color:#5a6170">C − B2 với EM / F1 ≥ 0.8</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-size:24px;color:#5a6170">Chỉ cần ít dữ liệu calib</p>
+<p style="font-size:56px;font-weight:700;line-height:1.1">50 câu → −1.2</p>
+<p style="font-size:26px;color:#5a6170">500 câu đã gần đủ (−1.6)</p>
+</div>
+</div>
+</div>
+<aside>Bốn kiểm tra độ vững của kết quả chính (C so với B2, nli-large). (1) Câu hỏi cùng đoạn văn không độc lập, nên chúng tôi bootstrap theo đoạn văn và theo bài: khoảng tin cậy rộng hơn chút nhưng vẫn xa 0 (theo đoạn [−2.03, −1.45], theo bài [−2.06, −1.38]). R cũng vẫn có ý nghĩa khi lấy mẫu theo bài [−1.49, −0.14], còn V thì không. (2) C tốt hơn B2 ở 34/35 bài. (3) Với tiêu chí chặt hơn (EM, F1 ≥ 0.8) mức cải thiện còn lớn hơn: −2.9 và −2.2; R cũng vậy: −2.3 và −1.5. (4) Học C chỉ cần ít dữ liệu: 50 câu calib đã giảm 1.2 điểm, 500 câu giảm 1.6.</aside>
+</section>

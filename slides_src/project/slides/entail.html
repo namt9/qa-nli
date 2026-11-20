@@ -1,0 +1,16 @@
+<section id="entail" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN II · KẾT QUẢ</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">NLI tách câu có / không đáp án tốt, span đúng / sai thì không</h2>
+<div style="display:flex;gap:56px;align-items:flex-start">
+<div style="width:980px;height:540px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:16px">
+<img src="/_blob/50ed6c71ce0ec9e730c08eb85b6789cc" alt="Phân bố P(entail) của ứng viên top-1 theo ba nhóm: có đáp án đúng, có đáp án sai, không đáp án" style="width:946px;height:506px;object-fit:contain">
+</div>
+<table style="flex:1;font-size:28px">
+<tr><th style="text-align:left;padding:14px 16px;border-bottom:2px solid #1c2128">Nhóm (test)</th><th style="text-align:right;padding:14px 16px;border-bottom:2px solid #1c2128">P_entail TB</th></tr>
+<tr><td style="padding:14px 16px;border-bottom:1px solid #e2e0d8">Có ĐA, top-1 đúng<br><span style="color:#5a6170">n = 4 175</span></td><td style="text-align:right;padding:14px 16px;border-bottom:1px solid #e2e0d8;font-size:44px;font-weight:700;color:#1f63b5">0.93</td></tr>
+<tr><td style="padding:14px 16px;border-bottom:1px solid #e2e0d8">Có ĐA, top-1 sai<br><span style="color:#5a6170">n = 301</span></td><td style="text-align:right;padding:14px 16px;border-bottom:1px solid #e2e0d8;font-size:44px;font-weight:700;color:#14805a">0.67</td></tr>
+<tr><td style="padding:14px 16px">Không đáp án<br><span style="color:#5a6170">n = 4 469</span></td><td style="text-align:right;padding:14px 16px;font-size:44px;font-weight:700;color:#b8461a">0.25</td></tr>
+</table>
+</div>
+<aside>NLI = nli-large với template, chia win3. Ở câu không đáp án, P_entail tập trung gần 0 — NLI nhận ra đoạn văn không kéo theo câu trả lời. Nhưng 68% top-1 sai ở câu có đáp án vẫn có P_entail ≥ 0.5: span sai thường chồng lấn với span đúng hoặc nằm cùng câu, nên vẫn "được kéo theo". Vì vậy NLI hữu ích cho việc từ chối hơn là cho việc chọn span.</aside>
+</section>

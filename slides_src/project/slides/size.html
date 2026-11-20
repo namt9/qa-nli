@@ -1,0 +1,20 @@
+<section id="size" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN II · KẾT QUẢ · RQ2</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Verifier nhỏ cần đầu vào tốt; verifier lớn thì ít phụ thuộc</h2>
+<div style="display:flex;gap:56px;align-items:flex-start">
+<div style="width:860px;height:540px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:16px">
+<img src="/_blob/b8ef6f9821e4b3aa65d65216f9f36591" alt="AURC trên test theo kích thước verifier (xs 71M, base 184M, large 435M) cho V, R, C, RC so với B1" style="width:826px;height:506px;object-fit:contain">
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<table style="font-size:28px">
+<tr><th style="text-align:left;padding:12px 16px;border-bottom:2px solid #1c2128">V, AURC ↓</th><th style="text-align:right;padding:12px 16px;border-bottom:2px solid #1c2128">concat</th><th style="text-align:right;padding:12px 16px;border-bottom:2px solid #1c2128">template</th></tr>
+<tr><td style="padding:12px 16px;border-bottom:1px solid #e2e0d8">xs · sent</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">34.0</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8"><b>29.7</b></td></tr>
+<tr><td style="padding:12px 16px;border-bottom:1px solid #e2e0d8">base · sent</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">38.2</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8"><b>29.5</b></td></tr>
+<tr><td style="padding:12px 16px">large · win3</td><td style="text-align:right;padding:12px 16px">23.6</td><td style="text-align:right;padding:12px 16px"><b>23.4</b></td></tr>
+</table>
+<p style="font-size:30px;line-height:1.4">Đổi (câu hỏi, đáp án) thành <b>câu khẳng định</b> giúp mọi kích thước; chia đoạn văn nhỏ giúp verifier nhỏ.</p>
+<p style="font-size:30px;line-height:1.4;color:#5a6170">Viết lại giả thuyết bằng LLM (Qwen2.5-1.5B) không tốt hơn template (bản 2k).</p>
+</div>
+</div>
+<aside>Biểu đồ: AURC theo kích thước verifier. V cải thiện mạnh khi lên large (29.5 → 23.4). C gần như không đổi theo kích thước: ngay cả verifier nhỏ cũng bổ sung được cho reader khi kết hợp. Bảng: template tốt hơn concat ở mọi kích thước, rõ nhất ở xs, base (5–9 điểm); với large chênh lệch nhỏ. Chúng tôi cũng thử viết lại giả thuyết bằng Qwen2.5-1.5B trên bản 2k: ngang template với mô hình nhỏ, kém hơn với large.</aside>
+</section>

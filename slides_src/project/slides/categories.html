@@ -1,0 +1,23 @@
+<section id="categories" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN I · DỮ LIỆU</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Câu không đáp án được tạo ra như thế nào?</h2>
+<div style="display:flex;gap:56px;align-items:flex-start">
+<table style="width:1000px;font-size:28px">
+<tr><th style="text-align:left;padding:12px 16px;border-bottom:2px solid #1c2128">Loại (Rajpurkar 2018)</th><th style="text-align:right;padding:12px 16px;border-bottom:2px solid #1c2128">n</th><th style="text-align:right;padding:12px 16px;border-bottom:2px solid #1c2128">P_entail TB</th><th style="text-align:right;padding:12px 16px;border-bottom:2px solid #1c2128">C trả lời</th></tr>
+<tr><td style="padding:12px 16px;border-bottom:1px solid #e2e0d8">ENT · hoán đổi thực thể</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">57</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">0.13</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">2%</td></tr>
+<tr><td style="padding:12px 16px;border-bottom:1px solid #e2e0d8">OTH · khác</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">14</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">0.29</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8"><b>14%</b></td></tr>
+<tr><td style="padding:12px 16px;border-bottom:1px solid #e2e0d8">NEG · phủ định</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">13</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">0.00</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">0%</td></tr>
+<tr><td style="padding:12px 16px;border-bottom:1px solid #e2e0d8">ANT · trái nghĩa</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">8</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">0.02</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">0%</td></tr>
+<tr><td style="padding:12px 16px;border-bottom:1px solid #e2e0d8">MUT, IMP · loại trừ, điều kiện</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">5</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">≈ 0.05</td><td style="text-align:right;padding:12px 16px;border-bottom:1px solid #e2e0d8">0%</td></tr>
+<tr><td style="padding:12px 16px">ANS · thực ra trả lời được</td><td style="text-align:right;padding:12px 16px">3</td><td style="text-align:right;padding:12px 16px"><b>0.98</b></td><td style="text-align:right;padding:12px 16px"><b>67%</b></td></tr>
+</table>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:40px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#b8461a">LỖI NHÃN CỦA DỮ LIỆU</p>
+<p style="font-size:28px;line-height:1.4"><b>Q:</b> What type of reaction produces oxygen in plane cabins?</p>
+<p style="font-size:28px;line-height:1.4"><b>Đoạn văn:</b> “…oxygen gas is then produced by the <b>exothermic reaction</b>.”</p>
+<p style="font-size:28px;line-height:1.4;color:#5a6170">Gán là “không đáp án”, nên hệ thống trả lời đúng vẫn bị tính sai.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">100 câu không đáp án ngẫu nhiên từ test, nhóm cùng gán nhãn (chưa đo độ đồng thuận) · NLI = nli-large · C = combo, ngưỡng chọn trên calib</p>
+<aside>Chúng tôi gán nhãn 100 câu không đáp án theo 7 loại của Rajpurkar 2018. NLI xử lý rất tốt câu bị sửa từ ngữ (phủ định, trái nghĩa): P_entail gần 0, không hệ thống nào trả lời. Lỗi tập trung ở loại "khác" và ở 3 câu thực ra có đáp án — lỗi nhãn của SQuAD 2.0. ENT chiếm tỉ lệ cao một phần vì quy tắc gán của nhóm xét ENT trước MUT, IMP và hiểu ENT rộng. Nói rõ: nhãn do nhóm cùng gán, chưa đo độ đồng thuận.</aside>
+</section>

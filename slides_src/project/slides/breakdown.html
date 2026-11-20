@@ -1,0 +1,30 @@
+<section id="breakdown" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN II · KẾT QUẢ</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">NLI giảm số câu không đáp án bị trả lời</h2>
+<p style="font-size:32px;color:#5a6170">% câu không đáp án vẫn bị trả lời, ở ngưỡng τ chọn trên calib (thấp hơn là tốt hơn)</p>
+<div style="display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;align-items:center;gap:24px">
+<p style="width:320px;font-size:30px">B2 reader-margin</p>
+<div style="width:933px;height:56px;background:#9aa0a8;border-radius:0 8px 8px 0"></div>
+<p style="font-size:36px;font-weight:700">14.0%</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px">
+<p style="width:320px;font-size:30px">V · chỉ NLI</p>
+<div style="width:880px;height:56px;background:#7fb0e6;border-radius:0 8px 8px 0"></div>
+<p style="font-size:36px;font-weight:700">13.2%</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px">
+<p style="width:320px;font-size:30px"><b>C · kết hợp</b></p>
+<div style="width:727px;height:56px;background:#2a78d6;border-radius:0 8px 8px 0"></div>
+<p style="font-size:36px;font-weight:700">10.9%</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px">
+<p style="width:320px;font-size:30px"><b>R · xếp hạng lại</b></p>
+<div style="width:660px;height:56px;background:#2a78d6;border-radius:0 8px 8px 0"></div>
+<p style="font-size:36px;font-weight:700">9.9%</p>
+</div>
+</div>
+<p style="font-size:32px;line-height:1.4">Đồng thời C vẫn trả lời <b>89.1%</b> câu có đáp án (B2: 87.1%) → từ chối đúng chỗ hơn, không phải từ chối nhiều hơn.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">Test: 4 469 câu không đáp án, 4 476 câu có đáp án · V, C, R dùng nli-large</p>
+<aside>Ở ngưỡng chọn trên calib để tối đa SQuAD2-F1, B2 vẫn trả lời 14% câu không đáp án. Kết hợp NLI giảm xuống 10.9%, xếp hạng lại xuống 9.9%. Quan trọng là C không đạt được điều này bằng cách từ chối nhiều hơn: nó còn trả lời nhiều câu có đáp án hơn B2 (89.1% so với 87.1%).</aside>
+</section>

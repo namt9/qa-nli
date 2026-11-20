@@ -1,0 +1,21 @@
+<section id="types-all" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN I · DỮ LIỆU</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Trên toàn bộ 4 469 câu: loại “khác” khó nhất</h2>
+<table style="width:1664px;font-size:28px">
+<tr><th style="text-align:left;padding:12px 20px;border-bottom:2px solid #1c2128">Loại (gán bằng luật)</th><th style="text-align:right;padding:12px 20px;border-bottom:2px solid #1c2128">n</th><th style="text-align:right;padding:12px 20px;border-bottom:2px solid #1c2128">% câu không ĐA</th><th style="text-align:right;padding:12px 20px;border-bottom:2px solid #1c2128">P_entail TB</th><th style="text-align:right;padding:12px 20px;border-bottom:2px solid #1c2128">B2 trả lời</th><th style="text-align:right;padding:12px 20px;border-bottom:2px solid #1c2128">C trả lời</th></tr>
+<tr><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">ANT · có từ trái nghĩa</td><td style="text-align:right;padding:12px 20px;border-bottom:1px solid #e2e0d8">131</td><td style="text-align:right;padding:12px 20px;border-bottom:1px solid #e2e0d8">2.9%</td><td style="text-align:right;padding:12px 20px;border-bottom:1px solid #e2e0d8">0.05</td><td style="text-align:right;padding:12px 20px;border-bottom:1px solid #e2e0d8">3.1%</td><td style="text-align:right;padding:12px 20px;border-bottom:1px solid #e2e0d8"><b>0.0%</b></td></tr>
+<tr><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">NEG · khác biệt phủ định</td><td style="text-align:right;padding:12px 20px;border-bottom:1px solid #e2e0d8">857</td><td style="text-align:right;padding:12px 20px;border-bottom:1px solid #e2e0d8">19.2%</td><td style="text-align:right;padding:12px 20px;border-bottom:1px solid #e2e0d8">0.21</td><td style="text-align:right;padding:12px 20px;border-bottom:1px solid #e2e0d8">6.2%</td><td style="text-align:right;padding:12px 20px;border-bottom:1px solid #e2e0d8">4.8%</td></tr>
+<tr><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">ENT · thực thể / số lạ</td><td style="text-align:right;padding:12px 20px;border-bottom:1px solid #e2e0d8">1 564</td><td style="text-align:right;padding:12px 20px;border-bottom:1px solid #e2e0d8">35.0%</td><td style="text-align:right;padding:12px 20px;border-bottom:1px solid #e2e0d8">0.22</td><td style="text-align:right;padding:12px 20px;border-bottom:1px solid #e2e0d8">12.5%</td><td style="text-align:right;padding:12px 20px;border-bottom:1px solid #e2e0d8">8.4%</td></tr>
+<tr><td style="padding:12px 20px">OTHER · điều kiện, loại trừ, khác</td><td style="text-align:right;padding:12px 20px">1 917</td><td style="text-align:right;padding:12px 20px">42.9%</td><td style="text-align:right;padding:12px 20px"><b>0.31</b></td><td style="text-align:right;padding:12px 20px"><b>19.6%</b></td><td style="text-align:right;padding:12px 20px"><b>16.3%</b></td></tr>
+</table>
+<div style="display:flex;gap:32px">
+<div style="flex:1;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:32px 40px">
+<p style="font-size:28px;line-height:1.4">Sửa <b>từ ngữ</b> (trái nghĩa, phủ định) → NLI bắt tốt. Sửa <b>ý nghĩa</b> (điều kiện, phạm vi) mà giữ nguyên từ → khó nhất.</p>
+</div>
+<div style="flex:1;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:32px 40px">
+<p style="font-size:28px;line-height:1.4;color:#5a6170">Luật chỉ khớp nhãn tay ở <b>54%</b> câu (hay xếp ENT thành OTHER) → đọc như xu hướng, không phải phân loại chính xác.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5a6170">Luật: so câu hỏi với câu chứa plausible answer · “trả lời” = trả lời sai, ở ngưỡng chọn trên calib · NLI = nli-large</p>
+<aside>Mở rộng phân tích từ 100 câu gán tay ra toàn bộ 4 469 câu không đáp án của test bằng một luật đơn giản: so câu hỏi với câu chứa đáp án mồi. Kết quả nhất quán với mẫu gán tay: câu bị sửa từ ngữ (trái nghĩa, phủ định) thì NLI phát hiện tốt; câu giữ nguyên từ nhưng đổi điều kiện hay phạm vi thì khó nhất — C vẫn trả lời 16%. Luật chỉ khớp nhãn tay 54% nên chỉ đọc như xu hướng.</aside>
+</section>

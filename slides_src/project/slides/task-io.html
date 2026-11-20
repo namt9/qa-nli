@@ -1,0 +1,35 @@
+<section id="task-io" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:32px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">MÔ TẢ BÀI TOÁN · INPUT / OUTPUT</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Đầu vào là đoạn văn và câu hỏi; đầu ra là câu trả lời kèm độ tin cậy</h2>
+<div style="display:flex;gap:20px;align-items:center">
+<div style="flex:1;align-self:stretch;display:flex;flex-direction:column;gap:10px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #9aa0a8;border-radius:16px;padding:24px 28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#5a6170">INPUT</p>
+<p style="font-size:28px;font-weight:600">Đoạn văn c</p>
+<p style="font-size:24px;line-height:1.35;color:#5a6170">một đoạn Wikipedia</p>
+<p style="font-size:28px;font-weight:600">Câu hỏi q</p>
+<p style="font-size:24px;line-height:1.35;color:#5a6170">có thể không có đáp án trong c</p>
+</div>
+<x-shape kind="arrow-right" style="width:56px;height:32px;background:#5a6170"></x-shape>
+<div style="flex:1.2;align-self:stretch;display:flex;flex-direction:column;gap:10px;background:#16202c;border-radius:16px;padding:24px 28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#7fb3f0">HỆ THỐNG</p>
+<p style="font-size:24px;line-height:1.35;color:#f3f1ea"><b>Reader</b> chọn span â trong c</p>
+<p style="font-size:24px;line-height:1.35;color:#f3f1ea"><b>NLI</b>: c có kéo theo câu khẳng định h(q, â) không?</p>
+<p style="font-size:24px;line-height:1.35;color:#f3f1ea"><b>Gộp</b> hai tín hiệu thành điểm s</p>
+</div>
+<x-shape kind="arrow-right" style="width:56px;height:32px;background:#5a6170"></x-shape>
+<div style="flex:1.2;align-self:stretch;display:flex;flex-direction:column;gap:10px;background:#ffffff;border:1px solid #e2e0d8;border-top:8px solid #2a78d6;border-radius:16px;padding:24px 28px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">OUTPUT</p>
+<p style="font-size:28px;font-weight:600">Câu trả lời â và độ tin cậy s</p>
+<p style="font-size:24px;line-height:1.35;color:#5a6170">â là một đoạn con của c; s càng cao càng chắc</p>
+<p style="font-size:28px;font-weight:600">Quyết định theo ngưỡng τ</p>
+<p style="font-size:24px;line-height:1.35;color:#5a6170">s ≥ τ: trả lời â · s &lt; τ: từ chối</p>
+</div>
+</div>
+<p style="font-size:26px;line-height:1.4"><b>Ví dụ.</b> Đoạn văn: “…Jacksonville <b>surrounds</b> the town of Baldwin…”</p>
+<table style="width:1664px;font-size:26px">
+<tr><th style="text-align:left;padding:10px 16px;border-bottom:2px solid #1c2128">Câu hỏi q</th><th style="text-align:left;padding:10px 16px;border-bottom:2px solid #1c2128">Reader chọn â</th><th style="text-align:left;padding:10px 16px;border-bottom:2px solid #1c2128">Output mong muốn</th></tr>
+<tr><td style="padding:10px 16px;border-bottom:1px solid #e2e0d8">What town is surrounded by Jacksonville?</td><td style="padding:10px 16px;border-bottom:1px solid #e2e0d8">Baldwin</td><td style="padding:10px 16px;border-bottom:1px solid #e2e0d8;color:#1f63b5">s cao → trả lời “Baldwin”</td></tr>
+<tr><td style="padding:10px 16px">What town surrounds Jacksonville?</td><td style="padding:10px 16px">Baldwin (vẫn chọn)</td><td style="padding:10px 16px;color:#b8461a">s thấp → từ chối</td></tr>
+</table>
+<aside>Mô tả hình thức của bài toán. Input gồm hai thứ: một đoạn văn c (trong SQuAD 2.0 là một đoạn Wikipedia) và một câu hỏi q; q có thể không có đáp án trong c. Output gồm hai thứ: câu trả lời â, luôn là một đoạn con của c, và một độ tin cậy s. Hệ thống trả lời â khi s lớn hơn hoặc bằng ngưỡng τ, ngược lại từ chối. Ngưỡng τ chọn trên tập calib. Bên trong hệ thống: reader đề xuất span; câu hỏi và span được đổi thành một câu khẳng định h, rồi mô hình NLI kiểm tra đoạn văn có kéo theo câu đó không; hai tín hiệu được gộp thành s. Ví dụ thật từ test: cùng một câu trong đoạn văn, “What town is surrounded by Jacksonville?” có đáp án Baldwin; đảo chiều thành “What town surrounds Jacksonville?” thì không còn đáp án, nhưng reader vẫn chọn Baldwin với cùng xác suất 0.97. Output mong muốn là s thấp để hệ thống từ chối. Như vậy cái cần học không phải là câu trả lời — reader đã có — mà là điểm s.</aside>
+</section>

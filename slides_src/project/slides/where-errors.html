@@ -1,0 +1,21 @@
+<section id="where-errors" data-transition="fade" style="background:#f6f5f1;color:#1c2128;font-family:'Be Vietnam Pro', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;color:#1f63b5">PHẦN I · DỮ LIỆU</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Lỗi không nằm ở việc chọn span, mà ở việc biết từ chối</h2>
+<div style="display:flex;gap:56px;align-items:flex-start">
+<div style="width:880px;height:540px;background:#ffffff;border:1px solid #e2e0d8;border-radius:16px;padding:16px">
+<img src="/_blob/1a3009fd631d80033e8d8b6e44329d1d" alt="Tỉ lệ câu có đáp án có ứng viên đúng trong top-k: 93.3, 95.7, 96.8, 97.3, 97.6" style="width:846px;height:506px;object-fit:contain">
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:96px;font-weight:700;line-height:1">93.3%</p>
+<p style="font-size:28px;color:#5a6170">câu có đáp án: top-1 của reader đã đúng</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:96px;font-weight:700;line-height:1;color:#1f63b5">195</p>
+<p style="font-size:28px;color:#5a6170">câu (4.4%) có ứng viên đúng ở hạng 2–5: trần của việc xếp hạng lại</p>
+</div>
+<p style="font-size:32px;line-height:1.4">→ Phần lớn rủi ro đến từ <b>câu không đáp án</b> bị trả lời.</p>
+</div>
+</div>
+<aside>Biểu đồ là trên tập test. Ở câu có đáp án, top-1 đã đúng 93.3%; thêm 4 ứng viên nữa chỉ lên 97.6%. Chỉ 195 câu có thể được sửa bằng cách chọn lại ứng viên — đó là mức trần của rerank. Vì vậy trọng tâm của bài toán là quyết định có trả lời hay không.</aside>
+</section>
