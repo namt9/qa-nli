@@ -26,6 +26,6 @@
 <div style="background:#16202c;border-radius:16px;padding:24px 40px">
 <p style="font-size:26px;line-height:1.4;color:#f3f1ea"><b>Thiết lập:</b> dev 11 873 câu → <b>calib</b> 2 928 (chọn cách chia đoạn, λ, τ, học C) / <b>test</b> 8 945 (chỉ báo cáo) · baseline B1, B2 · bootstrap theo cặp và theo bài · Colab T4</p>
 </div>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">28 / 51</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">26 / 49</p>
 <aside>Chi tiết các mô hình. Reader là RoBERTa-base đã được deepset huấn luyện trên SQuAD 2.0 train; nhóm giữ nguyên, lấy 5 span tốt nhất và điểm null, xác suất là softmax trên null cùng các span nên so sánh được giữa các câu. Verifier là ba checkpoint DeBERTa-v3 công khai: xs và base học trên SNLI và MNLI, large học trên năm bộ NLI. Biến thể -qa được tinh chỉnh thêm trên 60 000 cặp lấy từ SQuAD 2.0 train, không dùng dev: đáp án đúng là kéo theo; câu bẫy kèm đáp án mồi, và đáp án của một câu hỏi khác trong cùng đoạn, là không kéo theo. Premise lúc huấn luyện là câu hoặc cửa sổ chứa span, giống lúc suy luận. Tinh chỉnh 1 epoch, learning rate 2e-5, ép fp32 vì fp16 làm hỏng huấn luyện. Bộ kết hợp C là hồi quy logistic bốn đặc trưng học trên calib; ngưỡng τ chọn để tối đa SQuAD2-F1 trên calib. Learn-then-Test: lưới 100 ngưỡng cố định từ calib, kiểm định nhị thức chính xác cho từng ngưỡng, hiệu chỉnh Bonferroni, δ = 0.1. Mọi lựa chọn làm trên calib, test chỉ để báo cáo.</aside>
 </section>

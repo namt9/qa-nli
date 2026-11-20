@@ -1,0 +1,166 @@
+[
+ [
+  "Bài toán QA",
+  [
+   [
+    "QA",
+    "Question Answering: hỏi đáp trên đoạn văn"
+   ],
+   [
+    "Reader",
+    "mô hình đọc hiểu, chọn câu trả lời trong đoạn văn"
+   ],
+   [
+    "Span",
+    "đoạn con liên tiếp của đoạn văn, dùng làm câu trả lời"
+   ],
+   [
+    "Ứng viên · top-1, top-5",
+    "span reader đề xuất · hạng 1 · 5 span tốt nhất"
+   ],
+   [
+    "null",
+    "lựa chọn “không có đáp án” của reader"
+   ],
+   [
+    "ĐA",
+    "đáp án; câu không ĐA = câu không có đáp án trong đoạn"
+   ],
+   [
+    "Đáp án mồi",
+    "span trông giống đáp án trong câu không ĐA"
+   ],
+   [
+    "Edge case",
+    "trường hợp biên: kiểu câu khó, dễ gây lỗi"
+   ],
+   [
+    "Selective QA",
+    "QA được phép từ chối khi không chắc"
+   ]
+  ]
+ ],
+ [
+  "NLI và tín hiệu điểm",
+  [
+   [
+    "NLI",
+    "Natural Language Inference: suy diễn ngôn ngữ tự nhiên"
+   ],
+   [
+    "Premise",
+    "tiền đề: văn bản làm căn cứ (ở đây là đoạn văn)"
+   ],
+   [
+    "Hypothesis",
+    "giả thuyết: câu khẳng định tạo từ (câu hỏi, đáp án)"
+   ],
+   [
+    "Entail · contra · neutral",
+    "kéo theo · mâu thuẫn · trung lập (3 nhãn NLI)"
+   ],
+   [
+    "Verifier",
+    "bộ kiểm chứng: mô hình NLI chấm câu trả lời"
+   ],
+   [
+    "P_reader",
+    "xác suất reader gán cho span được chọn"
+   ],
+   [
+    "margin",
+    "điểm span trừ điểm null của reader"
+   ],
+   [
+    "P_entail · P_contra",
+    "xác suất NLI cho nhãn kéo theo · mâu thuẫn"
+   ],
+   [
+    "concat · template",
+    "ghép thô “câu hỏi + đáp án” · luật đổi thành câu khẳng định"
+   ]
+  ]
+ ],
+ [
+  "Phương pháp và mô hình",
+  [
+   [
+    "B1",
+    "Baseline 1: độ tin cậy = P_reader"
+   ],
+   [
+    "B2",
+    "Baseline 2: độ tin cậy = margin (span so với null)"
+   ],
+   [
+    "V",
+    "Verify: giữ top-1, độ tin cậy = P_entail"
+   ],
+   [
+    "R",
+    "Rerank: chọn lại trong top-5 theo λ·P_reader + (1−λ)·P_entail"
+   ],
+   [
+    "C",
+    "Combine: hồi quy logistic gộp P_reader, margin, P_entail, P_contra"
+   ],
+   [
+    "λ · τ",
+    "trọng số reader/NLI trong R · ngưỡng: điểm ≥ τ thì trả lời"
+   ],
+   [
+    "xs · base · large",
+    "cỡ DeBERTa-v3: 71M · 184M · 435M tham số"
+   ],
+   [
+    "-qa",
+    "bản verifier tinh chỉnh (fine-tune) thêm trên SQuAD 2.0 train"
+   ],
+   [
+    "full · sent · win3",
+    "premise là cả đoạn · từng câu · cửa sổ 3 câu"
+   ]
+  ]
+ ],
+ [
+  "Đánh giá",
+  [
+   [
+    "Coverage · risk",
+    "tỉ lệ câu được trả lời · tỉ lệ sai trong số đó"
+   ],
+   [
+    "AURC ↓",
+    "diện tích dưới đường risk–coverage: rủi ro TB, càng thấp càng tốt"
+   ],
+   [
+    "AUROC ↑",
+    "khả năng điểm tách câu đúng / sai, càng cao càng tốt"
+   ],
+   [
+    "EM · F1",
+    "khớp tuyệt đối · độ trùng từ với đáp án chuẩn"
+   ],
+   [
+    "SQuAD2-F1",
+    "F1 tính cả câu không ĐA (từ chối đúng = 1)"
+   ],
+   [
+    "calib · test",
+    "25% dev để chọn tham số · 75% dev chỉ để báo cáo"
+   ],
+   [
+    "CI · bootstrap",
+    "khoảng tin cậy 95% · ước lượng bằng lấy mẫu lại"
+   ],
+   [
+    "LTT · δ",
+    "Learn-then-Test: chọn ngưỡng có bảo đảm rủi ro · xác suất bảo đảm sai"
+   ],
+   [
+    "OOD",
+    "out-of-domain, ngoài miền: NQ, NewsQA, AddSent"
+   ]
+  ]
+ ]
+]

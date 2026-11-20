@@ -29,6 +29,6 @@
 <tr><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8"><b>R</b><span style="font-weight:400;color:#5a6170"> · rerank</span></td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">chọn lại trong top-5: λ·P_reader + (1−λ)·P_entail</td><td style="padding:12px 20px;border-bottom:1px solid #e2e0d8">cùng công thức</td></tr>
 <tr><td style="padding:12px 20px"><b>C</b><span style="font-weight:400;color:#5a6170"> · combine</span></td><td style="padding:12px 20px">top-1 của reader</td><td style="padding:12px 20px">hồi quy logistic trên [P_reader, margin, P_entail, P_contra]</td></tr>
 </table>
-<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">27 / 51</p>
+<p data-pgnum style="position:absolute;right:56px;bottom:36px;font-size:22px;font-weight:500;color:#9aa0a8">25 / 49</p>
 <aside>Reader trích xuất trả về 5 ứng viên kèm xác suất null. Mỗi ứng viên được ghép với câu hỏi thành giả thuyết: concat (ghép thô) hoặc template (đổi thành câu khẳng định bằng luật). Đoạn văn là premise, có thể chia thành câu (sent) hoặc cửa sổ 3 câu (win3), lấy max P(entail) qua các mảnh. Ba verifier: DeBERTa-v3 xsmall/base/large NLI. Bốn họ phương pháp; λ, ngưỡng τ và hồi quy logistic đều chọn/huấn luyện trên calib.</aside>
 </section>
